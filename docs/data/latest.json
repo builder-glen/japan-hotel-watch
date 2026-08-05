@@ -1,5 +1,5 @@
 {
- "collected_at": "2026-08-06T05:22:03+09:00",
+ "collected_at": "2026-08-06T07:07:57+09:00",
  "adults": 3,
  "rooms": 1,
  "fx_jpy_krw": 9.0644,
@@ -933,8 +933,8 @@
        "source": "agoda",
        "seller": "아고다 직접",
        "room": "컴포트 더블룸 - 금연실  (Comfort Double Room - Non-Smoking) / 컴포트 더블룸 - 금연실",
-       "krw": 573366,
-       "jpy": 63254,
+       "krw": 573357,
+       "jpy": 63253,
        "free_cancel": false,
        "breakfast": false,
        "dinner": false,
@@ -958,7 +958,7 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 98,
+     "offer_count": 97,
      "prior_low_krw": 440379,
      "record_low": false,
      "errors": {
@@ -1326,8 +1326,8 @@
        "source": "agoda",
        "seller": "아고다 직접",
        "room": "재패니즈 웨스턴 스타일 혼성, 아넥스 (금연) (Japanese-Western mixed,Annex - Non-Smoking) / 재패니즈 웨스턴 스타일 혼성, 아넥스 (금연)",
-       "krw": 1192860,
-       "jpy": 131598,
+       "krw": 1193663,
+       "jpy": 131686,
        "free_cancel": false,
        "breakfast": false,
        "dinner": false,
