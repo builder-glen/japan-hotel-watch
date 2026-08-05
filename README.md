@@ -84,8 +84,12 @@ python3 -m http.server 8000 -d docs   # http://localhost:8000
 
 ## 자동화
 
-`.github/workflows/collect.yml` 이 매시 정각(UTC)에 돌면서
-수집 → `docs/data` 커밋 → Pages 재배포까지 한다.
+`.github/workflows/collect.yml` 이 매시 정각(UTC)에 돌면서 수집 → `docs/data` 커밋을 한다.
+
+Pages 는 **main 브랜치의 `/docs` 를 그대로 서빙**하도록 설정돼 있어서
+커밋이 곧 배포다. 별도 배포 잡이 없다.
+
+공개 주소: <https://immortalemployee2021-gif.github.io/japan-hotel-watch/>
 
 > GitHub 크론은 **정각에 정확히 돌지 않는다.** 혼잡하면 수 분~수십 분 밀린다.
 > "1시간마다"는 정확한 주기가 아니라 평균 주기로 보면 된다.
