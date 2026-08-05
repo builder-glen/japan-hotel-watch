@@ -1,5 +1,5 @@
 {
- "collected_at": "2026-08-05T23:50:37+09:00",
+ "collected_at": "2026-08-05T23:52:52+09:00",
  "adults": 3,
  "rooms": 1,
  "fx_jpy_krw": 9.0613,
@@ -20,84 +20,25 @@
      "naver_url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
      "rakuten_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/177662?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
      "best": {
-      "source": "naver",
-      "seller": "트립닷컴",
-      "room": "트윈룸(chapter 3) - 무료 Wi-Fi",
-      "krw": 585866,
-      "jpy": 64656,
-      "free_cancel": true,
+      "source": "rakuten",
+      "seller": "라쿠텐 트래블",
+      "room": "【禁煙】スーペリアツインChapter 3（35平米） / 【連泊割】2泊以上でお得にホテル滞在満喫プラン/素泊まり",
+      "krw": 803420,
+      "jpy": 88665,
+      "free_cancel": null,
       "breakfast": false,
       "dinner": false,
+      "capacity": "1人〜5人",
       "official": false,
-      "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/177662?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+      "krw_estimated": true
      },
      "offers": [
-      {
-       "source": "naver",
-       "seller": "트립닷컴",
-       "room": "트윈룸(chapter 3) - 무료 Wi-Fi",
-       "krw": 585866,
-       "jpy": 64656,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "호텔스닷컴",
-       "room": "슈피리어 트윈룸, 금연 (Chapter 3)",
-       "krw": 588430,
-       "jpy": 64939,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "여기어때",
-       "room": "슈피리어 트윈룸, 금연 (Chapter 3)",
-       "krw": 588430,
-       "jpy": 64939,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "호텔스닷컴",
-       "room": "슈피리어 트윈룸, 금연 (Chapter 3)",
-       "krw": 588438,
-       "jpy": 64940,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "트립비토즈",
-       "room": "슈피리어 트윈룸, 금연 (Chapter 3)",
-       "krw": 592476,
-       "jpy": 65385,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
       {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】スーペリアツインChapter 3（35平米） / 【連泊割】2泊以上でお得にホテル滞在満喫プラン/素泊まり",
-       "krw": 803421,
+       "krw": 803420,
        "jpy": 88665,
        "free_cancel": null,
        "breakfast": false,
@@ -111,7 +52,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】スーペリアツインChapter 3（35平米） / 【ファミリー・グループ旅行におすすめ】全室洗い場バスルーム付/素泊まり",
-       "krw": 865944,
+       "krw": 865943,
        "jpy": 95565,
        "free_cancel": null,
        "breakfast": false,
@@ -125,7 +66,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】デラックスツインChapter 4（45平米） / 【連泊割】2泊以上でお得にホテル滞在満喫プラン/素泊まり",
-       "krw": 865944,
+       "krw": 865943,
        "jpy": 95565,
        "free_cancel": null,
        "breakfast": false,
@@ -139,7 +80,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】スーペリアツインChapter 3（35平米） / 【シンプルステイ】博多駅徒歩７分 観光やビジネスに最適/素泊まり",
-       "krw": 865944,
+       "krw": 865943,
        "jpy": 95565,
        "free_cancel": null,
        "breakfast": false,
@@ -164,10 +105,12 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 199,
+     "offer_count": 18,
      "prior_low_krw": 585866,
      "record_low": false,
-     "errors": {}
+     "errors": {
+      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+     }
     },
     {
      "key": "blossom",
@@ -177,83 +120,25 @@
      "naver_url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
      "rakuten_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/172876?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
      "best": {
-      "source": "naver",
-      "seller": "하나투어",
-      "room": "Deluxe Twin Room, Multiple Beds, Non Smoking (Max 3 Adults)",
-      "krw": 864718,
-      "jpy": 95430,
-      "free_cancel": false,
+      "source": "rakuten",
+      "seller": "라쿠텐 트래블",
+      "room": "＜禁煙＞デラックスツイン 3名 / 【連泊】気ままに自由に〜暮らすように泊まる博多旅〜(食事なし)",
+      "krw": 951436,
+      "jpy": 105000,
+      "free_cancel": null,
       "breakfast": false,
       "dinner": false,
+      "capacity": "3人",
       "official": false,
-      "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/172876?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+      "krw_estimated": true
      },
      "offers": [
-      {
-       "source": "naver",
-       "seller": "하나투어",
-       "room": "Deluxe Twin Room, Multiple Beds, Non Smoking (Max 3 Adults)",
-       "krw": 864718,
-       "jpy": 95430,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "트립비토즈",
-       "room": "디럭스 트윈룸, 침대(여러 개), 금연 (Max 3 Adults)",
-       "krw": 872354,
-       "jpy": 96272,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "호텔스닷컴",
-       "room": "디럭스 트윈룸, 침대(여러 개), 금연 (Max 3 Adults)",
-       "krw": 877410,
-       "jpy": 96830,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "트립닷컴",
-       "room": "디럭스 트윈룸 - 무료 Wi-Fi",
-       "krw": 898116,
-       "jpy": 99116,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "트립닷컴",
-       "room": "디럭스 트윈룸 - 무료 Wi-Fi",
-       "krw": 900204,
-       "jpy": 99346,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
       {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "＜禁煙＞デラックスツイン 3名 / 【連泊】気ままに自由に〜暮らすように泊まる博多旅〜(食事なし)",
-       "krw": 951437,
+       "krw": 951436,
        "jpy": 105000,
        "free_cancel": null,
        "breakfast": false,
@@ -295,7 +180,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "＜禁煙＞デラックスツイン 3名 / 【連泊】気ままに自由に〜暮らすように泊まる博多旅〜(朝食付き)",
-       "krw": 1126502,
+       "krw": 1126501,
        "jpy": 124320,
        "free_cancel": null,
        "breakfast": true,
@@ -320,10 +205,12 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 80,
+     "offer_count": 8,
      "prior_low_krw": 864718,
      "record_low": false,
-     "errors": {}
+     "errors": {
+      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+     }
     },
     {
      "key": "mitsui",
@@ -333,78 +220,20 @@
      "naver_url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
      "rakuten_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/178294?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
      "best": {
-      "source": "naver",
-      "seller": "트립비토즈",
-      "room": "스탠다드룸, 금연 (1 bed King , Shower)",
-      "krw": 573214,
-      "jpy": 63260,
-      "free_cancel": true,
+      "source": "rakuten",
+      "seller": "라쿠텐 트래블",
+      "room": "スタンダードツイン（+ソファベッド、バスタブ） / 【博多も天神も徒歩圏内♪大浴場で安らぎのひとときを】ベーシックプラン ＜素泊り＞",
+      "krw": 727849,
+      "jpy": 80325,
+      "free_cancel": null,
       "breakfast": false,
       "dinner": false,
+      "capacity": "3人",
       "official": false,
-      "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/178294?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+      "krw_estimated": true
      },
      "offers": [
-      {
-       "source": "naver",
-       "seller": "트립비토즈",
-       "room": "스탠다드룸, 금연 (1 bed King , Shower)",
-       "krw": 573214,
-       "jpy": 63260,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "하나투어",
-       "room": "다양한 객실 유형",
-       "krw": 578074,
-       "jpy": 63796,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "호텔스닷컴",
-       "room": "스탠다드룸, 금연 (1 bed King , Shower)",
-       "krw": 587050,
-       "jpy": 64786,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "호텔스닷컴",
-       "room": "스탠다드룸, 금연, 욕조 (2 beds + extra)",
-       "krw": 587050,
-       "jpy": 64786,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "호텔스닷컴",
-       "room": "스탠다드룸, 금연 (1 bed King , Shower)",
-       "krw": 593316,
-       "jpy": 65478,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
       {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
@@ -465,7 +294,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "スタンダードツイン（+ソファベッド、バスタブ） / 【早めのチェックインでゆったりステイ♪】13時アーリーチェックインプラン＜素泊り＞",
-       "krw": 746824,
+       "krw": 746823,
        "jpy": 82419,
        "free_cancel": null,
        "breakfast": false,
@@ -476,10 +305,12 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 109,
+     "offer_count": 20,
      "prior_low_krw": 573214,
      "record_low": false,
-     "errors": {}
+     "errors": {
+      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+     }
     },
     {
      "key": "crosslife",
@@ -489,83 +320,20 @@
      "naver_url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
      "rakuten_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/184507?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
      "best": {
-      "source": "naver",
-      "seller": "부킹닷컴",
-      "room": "컴포트 트윈룸 - 소파 베드",
-      "krw": 486112,
-      "jpy": 53647,
-      "free_cancel": false,
+      "source": "rakuten",
+      "seller": "라쿠텐 트래블",
+      "room": "ソファベッド付きコンフォートツイン / 【返金不可】素泊まり ドリンクチケット付き",
+      "krw": 535523,
+      "jpy": 59100,
+      "free_cancel": null,
       "breakfast": false,
       "dinner": false,
+      "capacity": "3人",
       "official": false,
-      "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-      "jpy_estimated": true
+      "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/184507?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+      "krw_estimated": true
      },
      "offers": [
-      {
-       "source": "naver",
-       "seller": "부킹닷컴",
-       "room": "컴포트 트윈룸 - 소파 베드",
-       "krw": 486112,
-       "jpy": 53647,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "부킹닷컴",
-       "room": "컴포트 퀸룸 - 소파 베드",
-       "krw": 486112,
-       "jpy": 53647,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "부킹닷컴",
-       "room": "스탠다드 트윈룸 - 침대 겸용 소파",
-       "krw": 513369,
-       "jpy": 56655,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "부킹닷컴",
-       "room": "스탠다드 퀸룸 - 소파 베드",
-       "krw": 513369,
-       "jpy": 56655,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "트립비토즈",
-       "room": "컴포트 트윈룸, 금연 (with Sofa Bed)",
-       "krw": 518024,
-       "jpy": 57169,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
       {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
@@ -637,10 +405,12 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 421,
+     "offer_count": 30,
      "prior_low_krw": 486112,
      "record_low": false,
-     "errors": {}
+     "errors": {
+      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+     }
     }
    ]
   },
@@ -663,7 +433,7 @@
       "source": "rakuten",
       "seller": "라쿠텐 트래블",
       "room": "☆【本館】和室８畳☆ / 【夢想園素泊まりプラン】",
-      "krw": 1076483,
+      "krw": 1076482,
       "jpy": 118800,
       "free_cancel": null,
       "breakfast": false,
@@ -678,7 +448,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "☆【本館】和室８畳☆ / 【夢想園素泊まりプラン】",
-       "krw": 1076483,
+       "krw": 1076482,
        "jpy": 118800,
        "free_cancel": null,
        "breakfast": false,
@@ -689,23 +459,10 @@
        "krw_estimated": true
       },
       {
-       "source": "naver",
-       "seller": "아고다",
-       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
-       "krw": 1085628,
-       "jpy": 119809,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "◆【本館】和室８畳◆ / ★期間限定特別特価プラン〜オフのゆふいん〜★",
-       "krw": 1435311,
+       "krw": 1435310,
        "jpy": 158400,
        "free_cancel": null,
        "breakfast": true,
@@ -716,23 +473,10 @@
        "krw_estimated": true
       },
       {
-       "source": "naver",
-       "seller": "아고다",
-       "room": "Main Building Japanese Style Room 8 Tatami",
-       "krw": 1444220,
-       "jpy": 159383,
-       "free_cancel": true,
-       "breakfast": true,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "◆【別館：湯山亭】和室６畳＋６畳◆ / ★期間限定特別特価プラン〜オフのゆふいん〜★",
-       "krw": 1495115,
+       "krw": 1495114,
        "jpy": 165000,
        "free_cancel": null,
        "breakfast": true,
@@ -743,23 +487,10 @@
        "krw_estimated": true
       },
       {
-       "source": "naver",
-       "seller": "아고다",
-       "room": "스탠다드 재패니즈룸",
-       "krw": 1553593,
-       "jpy": 171454,
-       "free_cancel": true,
-       "breakfast": true,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "◆【本館】和室８畳◆ / ★２連泊プラン★【うれしい特典付き♪】 《由布院滞在なら夢想園！！》",
-       "krw": 1554920,
+       "krw": 1554919,
        "jpy": 171600,
        "free_cancel": null,
        "breakfast": true,
@@ -770,23 +501,10 @@
        "krw_estimated": true
       },
       {
-       "source": "naver",
-       "seller": "아고다",
-       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
-       "krw": 1566716,
-       "jpy": 172902,
-       "free_cancel": true,
-       "breakfast": true,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "◆【本館】和室８畳◆ / ★〜夢想園満喫スタンダードプラン〜★",
-       "krw": 1614725,
+       "krw": 1614724,
        "jpy": 178200,
        "free_cancel": null,
        "breakfast": true,
@@ -795,24 +513,14 @@
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/44815?f_nen1=2026&f_tuki1=8&f_hi1=22&f_nen2=2026&f_tuki2=8&f_hi2=24&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
        "krw_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "하나투어",
-       "room": "Standard Japanese Room, Room Only with Min 2 night",
-       "krw": 1679076,
-       "jpy": 185302,
-       "free_cancel": true,
-       "breakfast": true,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3"
       }
      ],
-     "offer_count": 36,
+     "offer_count": 16,
      "prior_low_krw": 1076483,
-     "record_low": false,
-     "errors": {}
+     "record_low": true,
+     "errors": {
+      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+     }
     },
     {
      "key": "baien",
@@ -822,86 +530,25 @@
      "naver_url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
      "rakuten_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/39494?f_nen1=2026&f_tuki1=8&f_hi1=22&f_nen2=2026&f_tuki2=8&f_hi2=24&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
      "best": {
-      "source": "naver",
-      "seller": "부킹닷컴",
-      "room": "서양식 객실 - 다다미 공간 - 전용 욕실 없음 - 본관",
-      "krw": 796151,
-      "jpy": 87863,
-      "free_cancel": true,
+      "source": "rakuten",
+      "seller": "라쿠텐 트래블",
+      "room": "本邸 和洋室【禁煙】 / 時間を気にせず気の向くままに、湯布院観光を満喫♪◆素泊まりプラン◆",
+      "krw": 953883,
+      "jpy": 105270,
+      "free_cancel": null,
       "breakfast": false,
       "dinner": false,
+      "capacity": "1人〜5人",
       "official": false,
-      "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-      "jpy_estimated": true
+      "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/39494?f_nen1=2026&f_tuki1=8&f_hi1=22&f_nen2=2026&f_tuki2=8&f_hi2=24&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+      "krw_estimated": true
      },
      "offers": [
-      {
-       "source": "naver",
-       "seller": "부킹닷컴",
-       "room": "서양식 객실 - 다다미 공간 - 전용 욕실 없음 - 본관",
-       "krw": 796151,
-       "jpy": 87863,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-       "jpy_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "트립비토즈",
-       "room": "트래디셔널룸, 금연 (Japanese Western Room, Main Building)",
-       "krw": 797680,
-       "jpy": 88031,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "하나투어",
-       "room": "Japanese - Western Style Room(Main Building), Non-Smoking",
-       "krw": 800948,
-       "jpy": 88392,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "트립비토즈",
-       "room": "재패니즈 웨스턴 - 재패니즈 웨스턴 (Room Only (No Breakfast & Dinner))",
-       "krw": 826672,
-       "jpy": 91231,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "여기어때",
-       "room": "트래디셔널룸, 금연 (Japanese Western Room, Main Building)",
-       "krw": 828533,
-       "jpy": 91436,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-       "jpy_estimated": true
-      },
       {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "本邸 和洋室【禁煙】 / 時間を気にせず気の向くままに、湯布院観光を満喫♪◆素泊まりプラン◆",
-       "krw": 953884,
+       "krw": 953883,
        "jpy": 105270,
        "free_cancel": null,
        "breakfast": false,
@@ -915,7 +562,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "離れ（露天なし）和室10畳+洋室8畳【禁煙】 / 時間を気にせず気の向くままに、湯布院観光を満喫♪◆素泊まりプラン◆",
-       "krw": 1151239,
+       "krw": 1151238,
        "jpy": 127050,
        "free_cancel": null,
        "breakfast": false,
@@ -929,7 +576,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "本邸 和洋室【禁煙】 / 大切な人との会話が弾む由布院の四季の風景を感じるオリジナル会席◇創作会席プラン◇＜夕朝食付＞",
-       "krw": 1611734,
+       "krw": 1611733,
        "jpy": 177870,
        "free_cancel": null,
        "breakfast": true,
@@ -943,7 +590,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "本邸 和洋室【禁煙】 / 【夕朝食個室確約♪】周りを気にせず由布院の温泉とグルメをゆったり満喫＜夕朝食付＞",
-       "krw": 1731344,
+       "krw": 1731343,
        "jpy": 191070,
        "free_cancel": null,
        "breakfast": true,
@@ -957,7 +604,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "本邸 和洋室【禁煙】 / 記念日、誕生日、還暦、新婚旅行等◇５大特典付記念日プラン◇【ホールケーキ＆特別特典＆記念撮影】",
-       "krw": 1809090,
+       "krw": 1809089,
        "jpy": 199650,
        "free_cancel": null,
        "breakfast": true,
@@ -968,10 +615,12 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 162,
+     "offer_count": 11,
      "prior_low_krw": 796151,
      "record_low": false,
-     "errors": {}
+     "errors": {
+      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+     }
     }
    ]
   }
