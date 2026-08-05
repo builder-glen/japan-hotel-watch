@@ -4,6 +4,7 @@
 """
 
 import json
+import urllib.error
 import urllib.request
 
 ENDPOINT = "https://hermes-hotel-svc-api.naver.com/graphql"
@@ -45,8 +46,13 @@ def fetch(hotel, stay, adults, timeout=30):
         data=json.dumps(payload).encode(),
         headers={"Content-Type": "application/json", "User-Agent": UA},
     )
-    with urllib.request.urlopen(req, timeout=timeout) as res:
-        body = json.load(res)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as res:
+            body = json.load(res)
+    except urllib.error.HTTPError as exc:
+        # 차단인지 일시 장애인지 구분하려면 본문을 봐야 한다.
+        detail = (exc.read()[:200] or b"").decode("utf-8", "replace").replace("\n", " ")
+        raise RuntimeError(f"HTTP {exc.code}: {detail}") from None
 
     if body.get("errors"):
         raise RuntimeError(f"naver graphql error: {body['errors'][:1]}")
