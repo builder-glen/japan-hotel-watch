@@ -44,7 +44,16 @@ def fetch(hotel, stay, adults, timeout=30):
     req = urllib.request.Request(
         ENDPOINT,
         data=json.dumps(payload).encode(),
-        headers={"Content-Type": "application/json", "User-Agent": UA},
+        # 데이터센터 IP 에서 본문 없는 500 이 오는 일이 있어, 브라우저가 보내는
+        # Referer/Origin 을 같이 실어 보낸다.
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": UA,
+            "Accept": "application/json",
+            "Accept-Language": "ko-KR,ko;q=0.9",
+            "Origin": "https://hotels.naver.com",
+            "Referer": _detail_url(hotel, stay, adults),
+        },
     )
     try:
         with urllib.request.urlopen(req, timeout=timeout) as res:
