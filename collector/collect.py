@@ -82,6 +82,7 @@ def main():
                     "naver_url": naver._detail_url(hotel, stay, ADULTS),
                     "rakuten_url": rakuten.build_url(hotel["rakuten_no"], stay, ADULTS, ROOMS),
                     "best": best,
+                    "by_source": _best_by_source(offers),
                     "offers": _top_per_source(offers),
                     "offer_count": len(offers),
                     "prior_low_krw": prior_low,
@@ -145,6 +146,14 @@ def main():
 
     # 전 호텔 실패는 소스가 죽었다는 뜻이므로 워크플로를 실패시킨다.
     return 0 if ok else 1
+
+
+def _best_by_source(offers):
+    """소스별 최저가. 서로 독립적인 경로라 값이 크게 갈리면 둘 중 하나가 이상하다는 신호다."""
+    out = {}
+    for o in offers:  # 이미 가격 오름차순
+        out.setdefault(o["source"], {"krw": o["krw"], "jpy": o["jpy"], "seller": o["seller"]})
+    return out
 
 
 def _top_per_source(offers):

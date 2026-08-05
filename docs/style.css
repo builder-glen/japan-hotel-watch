@@ -239,6 +239,41 @@ h1 {
   white-space: nowrap;
 }
 
+/* ── 소스 교차검증 ──────────────────────── */
+.xcheck {
+  margin-top: 12px;
+  background: var(--surface-2);
+  border-radius: 9px;
+  padding: 9px 11px;
+  font-size: .76rem;
+}
+
+.xcheck-title {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: .71rem;
+  letter-spacing: .02em;
+  margin-bottom: 5px;
+}
+
+.xcheck-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 0;
+}
+
+.xcheck-row span:first-child { color: var(--muted); }
+.xcheck-val { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+
+.xcheck-note {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .72rem;
+}
+
 /* ── 가격 추이 차트 ─────────────────────── */
 .spark { margin-top: 14px; }
 .spark-empty { font-size: .74rem; color: var(--muted); }
