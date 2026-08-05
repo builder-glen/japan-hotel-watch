@@ -1,5 +1,5 @@
 {
- "collected_at": "2026-08-06T00:51:18+09:00",
+ "collected_at": "2026-08-06T00:58:56+09:00",
  "adults": 3,
  "rooms": 1,
  "fx_jpy_krw": 9.0644,
@@ -191,7 +191,7 @@
      "prior_low_krw": 585558,
      "record_low": false,
      "errors": {
-      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+      "naver": "RuntimeError: HTTP 500: "
      }
     },
     {
@@ -448,7 +448,7 @@
      "prior_low_krw": 821715,
      "record_low": false,
      "errors": {
-      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+      "naver": "RuntimeError: HTTP 500: "
      }
     },
     {
@@ -705,7 +705,7 @@
      "prior_low_krw": 573214,
      "record_low": false,
      "errors": {
-      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+      "naver": "RuntimeError: HTTP 500: "
      }
     },
     {
@@ -962,7 +962,7 @@
      "prior_low_krw": 440379,
      "record_low": false,
      "errors": {
-      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+      "naver": "RuntimeError: HTTP 500: "
      }
     }
    ]
@@ -1068,9 +1068,9 @@
       {
        "source": "agoda",
        "seller": "아고다 직접",
-       "room": "Japanese-style,Annex / Japanese-style,Annex",
-       "krw": 1466420,
-       "jpy": 161777,
+       "room": "Main Building Japanese Style Room 8 Tatami / Main Building Japanese Style Room 8 Tatami",
+       "krw": 1447680,
+       "jpy": 159710,
        "free_cancel": true,
        "breakfast": true,
        "dinner": false,
@@ -1150,11 +1150,11 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 33,
+     "offer_count": 36,
      "prior_low_krw": 1076482,
      "record_low": false,
      "errors": {
-      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+      "naver": "RuntimeError: HTTP 500: "
      }
     },
     {
@@ -1168,20 +1168,20 @@
       "source": "agoda",
       "seller": "아고다 직접",
       "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
-      "krw": 857366,
-      "jpy": 94586,
+      "krw": 846089,
+      "jpy": 93342,
       "free_cancel": true,
       "breakfast": false,
       "dinner": false,
       "official": false,
-      "channel": 1,
+      "channel": 21,
       "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
       "jpy_estimated": true
      },
      "by_source": {
       "agoda": {
-       "krw": 857366,
-       "jpy": 94586,
+       "krw": 846089,
+       "jpy": 93342,
        "seller": "아고다 직접"
       },
       "rakuten": {
@@ -1200,13 +1200,13 @@
        "source": "agoda",
        "seller": "아고다 직접",
        "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
-       "krw": 857366,
-       "jpy": 94586,
+       "krw": 846089,
+       "jpy": 93342,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
        "official": false,
-       "channel": 1,
+       "channel": 21,
        "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
        "jpy_estimated": true
       },
@@ -1214,8 +1214,8 @@
        "source": "agoda",
        "seller": "아고다 직접",
        "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
-       "krw": 865006,
-       "jpy": 95429,
+       "krw": 864901,
+       "jpy": 95417,
        "free_cancel": false,
        "breakfast": false,
        "dinner": false,
@@ -1411,7 +1411,7 @@
      "prior_low_krw": 796151,
      "record_low": false,
      "errors": {
-      "naver": "HTTPError: HTTP Error 500: Internal Server Error"
+      "naver": "RuntimeError: HTTP 500: "
      }
     }
    ]
