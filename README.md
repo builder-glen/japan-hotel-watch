@@ -53,6 +53,10 @@
 - 서버사이드 렌더링이라 JS 실행 없이 파싱됨 (WAF 없음)
 - 요금은 `hinfo.hotels` 인라인 JSON 의 `sumTotalChargeTaxInclusive` (세금포함 총액)
 - 객실명은 `<li id='{플랜ID}-{객실코드}' class='rm-type-wrapper'>` 의 `title` 속성
+- **식사·정원은 같은 블록의 `data-locate="roomType-option-meal"` / `-people` 에서 읽는다.**
+  플랜명 문구(`素泊まり`, `会席` …)로 추측하면 틀린다 — 무소우엔의 `期間限定特別特価プラン` 은
+  이름에 식사 언급이 없는데 실제로는 1박2식이다. 료칸은 식사 유무가 금액의 대부분이라
+  여기서 틀리면 비교가 무의미해진다.
 - 엔화만 주므로 네이버 응답에서 역산한 환율로 원화 환산 (`krw_estimated: true` 로 표시)
 
 환율은 별도 API를 쓰지 않는다. 네이버가 **같은 상품의 원화와 엔화를 동시에** 주므로
@@ -95,6 +99,12 @@ Pages 는 **main 브랜치의 `/docs` 를 그대로 서빙**하도록 설정돼 
 > "1시간마다"는 정확한 주기가 아니라 평균 주기로 보면 된다.
 
 수동 실행은 Actions 탭 → `숙소 최저가 수집` → Run workflow.
+
+## 페이지를 고칠 때
+
+`docs/index.html` 의 `style.css?v=N` / `app.js?v=N` 숫자를 **반드시 올린다.**
+안 올리면 GitHub Pages 캐시 때문에 일행이 한동안 옛 화면을 본다.
+`docs/data/*` 는 `app.js` 가 분 단위 쿼리스트링을 붙여 읽으므로 신경 안 써도 된다.
 
 ## 알아둘 것
 
