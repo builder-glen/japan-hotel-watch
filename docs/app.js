@@ -102,8 +102,11 @@ function renderHotel(h, stay, idx, series) {
         `역대 최저 ${won(h.prior_low_krw)}원 (지금 +${won(h.best.krw - h.prior_low_krw)})`));
     }
     b.appendChild($('span', 'badge seller', h.best.seller));
+    // 료칸은 식사 포함 여부가 금액의 대부분을 좌우한다. 대표 가격에 반드시 같이 보여준다.
     if (h.best.dinner && h.best.breakfast) b.appendChild($('span', 'badge meal', '1박2식'));
     else if (h.best.breakfast) b.appendChild($('span', 'badge meal', '조식 포함'));
+    else if (h.best.breakfast === false && h.best.dinner === false)
+      b.appendChild($('span', 'badge', '식사 없음'));
     if (h.best.capacity) b.appendChild($('span', 'badge', `정원 ${h.best.capacity}`));
     if (h.best.free_cancel) b.appendChild($('span', 'badge cancel', '무료 취소'));
     if (h.best.official) b.appendChild($('span', 'badge', '공식 사이트'));
