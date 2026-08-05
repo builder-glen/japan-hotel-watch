@@ -1,6 +1,7 @@
 /* latest.json + history.jsonl 을 읽어 카드로 그린다. 의존성 없음. */
 
 const won = n => n.toLocaleString('ko-KR');
+let PAX = 3; // latest.json 의 adults 로 덮어씀
 const $ = (t, cls, txt) => {
   const e = document.createElement(t);
   if (cls) e.className = cls;
@@ -27,6 +28,7 @@ async function init() {
   }
 
   const series = parseHistory(history);
+  PAX = data.adults || 3;
   document.getElementById('updated').textContent =
     `${fmtTime(data.collected_at)} 기준 · ${ago(data.collected_at)}`;
   document.getElementById('pax').textContent = `성인 ${data.adults}명 · ${data.rooms}객실`;
@@ -46,6 +48,13 @@ function renderStay(stay, series) {
   head.appendChild($('span', 'dates',
     `${fmtDate(stay.check_in)} – ${fmtDate(stay.check_out)} · ${stay.nights}박`));
   sec.appendChild(head);
+
+  const basis = $('div', 'basis');
+  basis.appendChild($('strong', null,
+    `아래 금액은 모두 ${stay.nights}박 전체 총액 · 성인 ${PAX}명 1객실 합계입니다.`));
+  basis.appendChild($('span', null, ' 1박 요금도, 1인 요금도 아닙니다. 소비세는 포함돼 있습니다.'));
+  if (stay.local_tax) basis.appendChild($('div', 'basis-tax', `추가 부담: ${stay.local_tax}`));
+  sec.appendChild(basis);
 
   // 가장 싼 곳이 위로 오게. 일행이 순위를 바로 보게 하려는 의도.
   const hotels = [...stay.hotels].sort((a, b) =>
@@ -75,8 +84,11 @@ function renderHotel(h, stay, idx, series) {
     right.appendChild(p);
 
     const sub = $('div', 'price-sub');
-    sub.textContent = `¥${won(h.best.jpy)} · 1인 ${won(Math.round(h.best.krw / 3))}원`;
+    sub.textContent = `¥${won(h.best.jpy)} · 1인 ${won(Math.round(h.best.krw / PAX))}원`;
     right.appendChild(sub);
+
+    // 총액인지 1박 요금인지 헷갈리면 비교가 통째로 어긋난다. 매번 명시한다.
+    right.appendChild($('div', 'price-basis', `${stay.nights}박 총액 · ${PAX}명 합계`));
 
     const key = `${stay.id}/${h.key}`;
     const d = delta(series[key]);
@@ -206,34 +218,104 @@ function spark(pts) {
     return box;
   }
 
-  const W = 300, H = 46, pad = 4;
+  const W = 300, H = 64, padX = 6, padTop = 16, padBot = 14;
   const ys = pts.map(p => p.krw);
   const min = Math.min(...ys), max = Math.max(...ys);
-  const flat = max === min; // 값이 안 변했으면 바닥에 붙이지 말고 가운데 직선으로 그린다
-  const x = i => pad + (i * (W - pad * 2)) / (pts.length - 1);
-  const y = v => flat ? H / 2 : H - pad - ((v - min) / (max - min)) * (H - pad * 2);
+  const flat = max === min; // 값이 안 변했으면 바닥에 붙이지 말고 가운데 직선으로
+  const x = i => padX + (i * (W - padX * 2)) / (pts.length - 1);
+  const y = v => flat
+    ? (padTop + H - padBot) / 2
+    : H - padBot - ((v - min) / (max - min)) * (H - padTop - padBot);
+
   const line = pts.map((p, i) => `${x(i)},${y(p.krw)}`).join(' ');
   const lowIdx = ys.indexOf(min);
+  const lastIdx = pts.length - 1;
 
-  box.innerHTML = `
-<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img"
-     aria-label="최근 가격 추이. 최저 ${won(min)}원, 최고 ${won(max)}원.">
-  <polygon points="${line} ${x(pts.length - 1)},${H} ${x(0)},${H}"
+  // 점이 많아지면 전부 찍으면 지저분해서 일정 간격으로 솎아낸다.
+  // 단 최저점과 마지막 점은 무조건 남긴다 — 이 둘이 판단 근거다.
+  const step = Math.max(1, Math.ceil(pts.length / 30));
+  const dots = pts.map((_, i) => i)
+    .filter(i => i % step === 0 || i === lowIdx || i === lastIdx);
+
+  const wrap = $('div', 'chart');
+  wrap.innerHTML = `
+<svg viewBox="0 0 ${W} ${H}" role="img"
+     aria-label="가격 추이 ${pts.length}회. 최저 ${won(min)}원, 최고 ${won(max)}원, 현재 ${won(pts.at(-1).krw)}원.">
+  <polygon points="${line} ${x(lastIdx)},${H - padBot} ${x(0)},${H - padBot}"
            fill="var(--accent)" opacity=".08"/>
   <polyline points="${line}" fill="none" stroke="var(--accent)"
-            stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"
-            vector-effect="non-scaling-stroke"/>
-  <circle cx="${x(lowIdx)}" cy="${y(min)}" r="3" fill="var(--gold)"/>
-  <circle cx="${x(pts.length - 1)}" cy="${y(pts.at(-1).krw)}" r="3" fill="var(--accent)"/>
+            stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  ${dots.map(i => `<circle cx="${x(i)}" cy="${y(pts[i].krw)}" r="2"
+     fill="${i === lowIdx ? 'var(--gold)' : 'var(--accent)'}"/>`).join('')}
+  <circle cx="${x(lastIdx)}" cy="${y(pts[lastIdx].krw)}" r="3.4" fill="var(--accent)"/>
+  ${flat ? '' : `<text x="${labelX(x(lowIdx))}" y="${y(min) + 11}" class="pt-label low"
+     text-anchor="${anchor(x(lowIdx))}">${won(min)}</text>`}
+  <text x="${labelX(x(lastIdx))}" y="${y(pts[lastIdx].krw) - 6}" class="pt-label now"
+        text-anchor="${anchor(x(lastIdx))}">${won(pts[lastIdx].krw)}</text>
+  <g class="hover-layer"></g>
 </svg>`;
 
+  const svg = wrap.querySelector('svg');
+  const tip = $('div', 'chart-tip');
+  tip.hidden = true;
+  wrap.appendChild(tip);
+  attachHover(svg, wrap, tip, pts, x, y, W);
+
+  box.appendChild(wrap);
+
   const cap = $('div', 'spark-empty');
-  cap.style.marginTop = '3px';
+  const span = `${fmtShort(pts[0].t)} ~ ${fmtShort(pts.at(-1).t)}`;
   cap.textContent = flat
-    ? `최근 ${pts.length}회 확인 · 변동 없음 (${won(min)}원)`
-    : `최근 ${pts.length}회 · 최저 ${won(min)}원 / 최고 ${won(max)}원`;
+    ? `${span} · ${pts.length}회 확인 · 변동 없음`
+    : `${span} · ${pts.length}회 확인 · 최저 ${won(min)}원 / 최고 ${won(max)}원`;
   box.appendChild(cap);
   return box;
+
+  // 라벨이 좌우 끝에서 잘리지 않게 앵커를 바꾼다.
+  function anchor(px) { return px < 40 ? 'start' : px > W - 40 ? 'end' : 'middle'; }
+  function labelX(px) { return px < 40 ? padX : px > W - 40 ? W - padX : px; }
+}
+
+/** 점 위에 손가락/커서를 올리면 그 시점의 금액과 시각을 보여준다. */
+function attachHover(svg, wrap, tip, pts, x, y, W) {
+  const layer = svg.querySelector('.hover-layer');
+
+  const show = i => {
+    const p = pts[i];
+    layer.innerHTML =
+      `<line x1="${x(i)}" y1="0" x2="${x(i)}" y2="64" class="hover-line"/>` +
+      `<circle cx="${x(i)}" cy="${y(p.krw)}" r="4" class="hover-dot"/>`;
+    tip.hidden = false;
+    tip.textContent = `${fmtShort(p.t)} · ${won(p.krw)}원`;
+    // SVG 좌표(0~W)를 실제 픽셀 비율로 환산해 배치
+    tip.style.left = `${(x(i) / W) * 100}%`;
+  };
+  const hide = () => { layer.innerHTML = ''; tip.hidden = true; };
+
+  const nearest = ev => {
+    const r = svg.getBoundingClientRect();
+    const vx = ((ev.clientX - r.left) / r.width) * W;
+    let best = 0, bd = Infinity;
+    pts.forEach((_, i) => {
+      const d = Math.abs(x(i) - vx);
+      if (d < bd) { bd = d; best = i; }
+    });
+    return best;
+  };
+
+  svg.addEventListener('pointermove', ev => show(nearest(ev)));
+  svg.addEventListener('pointerdown', ev => show(nearest(ev)));
+  svg.addEventListener('pointerleave', hide);
+  wrap.addEventListener('pointercancel', hide);
+}
+
+function fmtShort(d) {
+  const parts = new Intl.DateTimeFormat('ko-KR', {
+    month: 'numeric', day: 'numeric', hour: '2-digit',
+    hour12: false, timeZone: 'Asia/Seoul',
+  }).formatToParts(d);
+  const get = t => parts.find(p => p.type === t)?.value ?? '';
+  return `${get('month')}/${get('day')} ${get('hour')}시`;
 }
 
 /* ── 시간 표기 ───────────────────────────── */

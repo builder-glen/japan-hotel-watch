@@ -1,5 +1,5 @@
 {
- "collected_at": "2026-08-05T23:32:14+09:00",
+ "collected_at": "2026-08-05T23:50:37+09:00",
  "adults": 3,
  "rooms": 1,
  "fx_jpy_krw": 9.0613,
@@ -10,6 +10,7 @@
    "check_in": "2026-08-20",
    "check_out": "2026-08-22",
    "nights": 2,
+   "local_tax": "숙박세 1인 1박 200엔 별도 (현지 결제) · 3명 2박이면 약 1,200엔",
    "hotels": [
     {
      "key": "basics",
@@ -163,7 +164,7 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 200,
+     "offer_count": 199,
      "prior_low_krw": 585866,
      "record_low": false,
      "errors": {}
@@ -228,9 +229,9 @@
        "source": "naver",
        "seller": "트립닷컴",
        "room": "디럭스 트윈룸 - 무료 Wi-Fi",
-       "krw": 900204,
-       "jpy": 99346,
-       "free_cancel": true,
+       "krw": 898116,
+       "jpy": 99116,
+       "free_cancel": false,
        "breakfast": false,
        "dinner": false,
        "official": false,
@@ -238,16 +239,15 @@
       },
       {
        "source": "naver",
-       "seller": "부킹닷컴",
-       "room": "트리플룸",
-       "krw": 913079,
-       "jpy": 100767,
-       "free_cancel": false,
+       "seller": "트립닷컴",
+       "room": "디럭스 트윈룸 - 무료 Wi-Fi",
+       "krw": 900204,
+       "jpy": 99346,
+       "free_cancel": true,
        "breakfast": false,
        "dinner": false,
        "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-       "jpy_estimated": true
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
       },
       {
        "source": "rakuten",
@@ -295,7 +295,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "＜禁煙＞デラックスツイン 3名 / 【連泊】気ままに自由に〜暮らすように泊まる博多旅〜(朝食付き)",
-       "krw": 1126501,
+       "krw": 1126502,
        "jpy": 124320,
        "free_cancel": null,
        "breakfast": true,
@@ -320,7 +320,7 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 74,
+     "offer_count": 80,
      "prior_low_krw": 864718,
      "record_low": false,
      "errors": {}
@@ -359,32 +359,8 @@
       },
       {
        "source": "naver",
-       "seller": "트립비토즈",
-       "room": "스탠다드룸, 금연, 욕조 (2 beds + extra)",
-       "krw": 573214,
-       "jpy": 63260,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
        "seller": "하나투어",
        "room": "다양한 객실 유형",
-       "krw": 578074,
-       "jpy": 63796,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "하나투어",
-       "room": "Standard , 2 beds (+ extra) , Bathtub, Non Smoking",
        "krw": 578074,
        "jpy": 63796,
        "free_cancel": true,
@@ -399,6 +375,30 @@
        "room": "스탠다드룸, 금연 (1 bed King , Shower)",
        "krw": 587050,
        "jpy": 64786,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      },
+      {
+       "source": "naver",
+       "seller": "호텔스닷컴",
+       "room": "스탠다드룸, 금연, 욕조 (2 beds + extra)",
+       "krw": 587050,
+       "jpy": 64786,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      },
+      {
+       "source": "naver",
+       "seller": "호텔스닷컴",
+       "room": "스탠다드룸, 금연 (1 bed King , Shower)",
+       "krw": 593316,
+       "jpy": 65478,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -476,7 +476,7 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 117,
+     "offer_count": 109,
      "prior_low_krw": 573214,
      "record_low": false,
      "errors": {}
@@ -637,7 +637,7 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 419,
+     "offer_count": 421,
      "prior_low_krw": 486112,
      "record_low": false,
      "errors": {}
@@ -650,6 +650,7 @@
    "check_in": "2026-08-22",
    "check_out": "2026-08-24",
    "nights": 2,
+   "local_tax": "입탕세 성인 1인 250엔 별도 (현지 결제)",
    "hotels": [
     {
      "key": "musouen",
@@ -874,7 +875,7 @@
       {
        "source": "naver",
        "seller": "트립비토즈",
-       "room": "재패니즈 웨스턴",
+       "room": "재패니즈 웨스턴 - 재패니즈 웨스턴 (Room Only (No Breakfast & Dinner))",
        "krw": 826672,
        "jpy": 91231,
        "free_cancel": true,
@@ -967,7 +968,7 @@
        "krw_estimated": true
       }
      ],
-     "offer_count": 164,
+     "offer_count": 162,
      "prior_low_krw": 796151,
      "record_low": false,
      "errors": {}

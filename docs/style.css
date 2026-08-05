@@ -212,10 +212,71 @@ h1 {
   word-break: break-word;
 }
 
-/* ── 스파크라인 ─────────────────────────── */
+/* ── 요금 기준 안내 ─────────────────────── */
+.basis {
+  background: var(--accent-soft);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 13px;
+  margin-bottom: 14px;
+  font-size: .79rem;
+  line-height: 1.5;
+}
+
+.basis strong { color: var(--accent); }
+
+.basis-tax {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.price-basis {
+  font-size: .7rem;
+  color: var(--muted);
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+/* ── 가격 추이 차트 ─────────────────────── */
 .spark { margin-top: 14px; }
-.spark svg { display: block; width: 100%; height: 46px; overflow: visible; }
 .spark-empty { font-size: .74rem; color: var(--muted); }
+
+.chart { position: relative; touch-action: pan-y; }
+.chart svg { display: block; width: 100%; height: 64px; }
+
+.pt-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  font-family: inherit;
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.pt-label.low { fill: var(--gold); }
+.pt-label.now { fill: var(--accent); }
+
+.hover-line { stroke: var(--muted); stroke-width: .8px; opacity: .5; }
+.hover-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 2px; }
+
+.chart-tip {
+  position: absolute;
+  top: -6px;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: var(--surface);
+  font-size: .7rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+}
 
 /* ── 링크 버튼 ──────────────────────────── */
 .links {

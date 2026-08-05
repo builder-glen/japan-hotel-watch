@@ -108,7 +108,7 @@ def main():
 
         stays_out.append(
             {
-                **{k: stay[k] for k in ("id", "label", "check_in", "check_out", "nights")},
+                **{k: stay[k] for k in ("id", "label", "check_in", "check_out", "nights", "local_tax")},
                 "hotels": hotels_out,
             }
         )
