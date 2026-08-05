@@ -1,5 +1,5 @@
 {
- "collected_at": "2026-08-05T23:09:39+09:00",
+ "collected_at": "2026-08-05T23:19:37+09:00",
  "adults": 3,
  "rooms": 1,
  "fx_jpy_krw": 9.0613,
@@ -22,8 +22,8 @@
       "source": "naver",
       "seller": "트립닷컴",
       "room": "트윈룸(chapter 3) - 무료 Wi-Fi",
-      "krw": 586048,
-      "jpy": 64676,
+      "krw": 585866,
+      "jpy": 64656,
       "free_cancel": true,
       "breakfast": false,
       "dinner": false,
@@ -35,8 +35,8 @@
        "source": "naver",
        "seller": "트립닷컴",
        "room": "트윈룸(chapter 3) - 무료 Wi-Fi",
-       "krw": 586048,
-       "jpy": 64676,
+       "krw": 585866,
+       "jpy": 64656,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -131,9 +131,9 @@
        "jpy_estimated": true
       }
      ],
-     "offer_count": 210,
+     "offer_count": 186,
      "prior_low_krw": 586048,
-     "record_low": false,
+     "record_low": true,
      "errors": {}
     },
     {
@@ -196,20 +196,8 @@
        "source": "naver",
        "seller": "트립닷컴",
        "room": "디럭스 트윈룸 - 무료 Wi-Fi",
-       "krw": 898394,
-       "jpy": 99146,
-       "free_cancel": false,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "트립닷컴",
-       "room": "디럭스 트윈룸 - 무료 Wi-Fi",
-       "krw": 899736,
-       "jpy": 99294,
+       "krw": 900204,
+       "jpy": 99346,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -254,9 +242,22 @@
        "official": false,
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
        "jpy_estimated": true
+      },
+      {
+       "source": "naver",
+       "seller": "아고다",
+       "room": "디럭스 트윈룸",
+       "krw": 926966,
+       "jpy": 102299,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
+       "jpy_estimated": true
       }
      ],
-     "offer_count": 76,
+     "offer_count": 74,
      "prior_low_krw": 864718,
      "record_low": false,
      "errors": {}
@@ -378,7 +379,7 @@
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
       }
      ],
-     "offer_count": 111,
+     "offer_count": 113,
      "prior_low_krw": 573214,
      "record_low": false,
      "errors": {}
@@ -505,7 +506,7 @@
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
       }
      ],
-     "offer_count": 420,
+     "offer_count": 418,
      "prior_low_krw": 486112,
      "record_low": false,
      "errors": {}
@@ -570,7 +571,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "◆【本館】和室８畳◆ / ★期間限定特別特価プラン〜オフのゆふいん〜★",
-       "krw": 1435310,
+       "krw": 1435311,
        "jpy": 158400,
        "free_cancel": null,
        "breakfast": false,
@@ -737,8 +738,8 @@
        "source": "naver",
        "seller": "트립닷컴",
        "room": "재패니즈 웨스턴 스타일룸 (본관, 금연) - 무료 Wi-Fi",
-       "krw": 840254,
-       "jpy": 92730,
+       "krw": 840692,
+       "jpy": 92778,
        "free_cancel": false,
        "breakfast": false,
        "dinner": false,
