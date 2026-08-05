@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
  "collected_at": "2026-08-06T00:39:44+09:00",
+=======
+ "collected_at": "2026-08-06T00:48:49+09:00",
+>>>>>>> Stashed changes
  "adults": 3,
  "rooms": 1,
  "fx_jpy_krw": 9.1,
@@ -40,7 +44,11 @@
        "seller": "아고다 직접"
       },
       "rakuten": {
+<<<<<<< Updated upstream
        "krw": 806852,
+=======
+       "krw": 803420,
+>>>>>>> Stashed changes
        "jpy": 88665,
        "seller": "라쿠텐 트래블"
       }
@@ -120,7 +128,11 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】スーペリアツインChapter 3（35平米） / 【連泊割】2泊以上でお得にホテル滞在満喫プラン/素泊まり",
+<<<<<<< Updated upstream
        "krw": 806852,
+=======
+       "krw": 803420,
+>>>>>>> Stashed changes
        "jpy": 88665,
        "free_cancel": null,
        "breakfast": false,
@@ -134,7 +146,11 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】スーペリアツインChapter 3（35平米） / 【ファミリー・グループ旅行におすすめ】全室洗い場バスルーム付/素泊まり",
+<<<<<<< Updated upstream
        "krw": 869642,
+=======
+       "krw": 865943,
+>>>>>>> Stashed changes
        "jpy": 95565,
        "free_cancel": null,
        "breakfast": false,
@@ -148,7 +164,11 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】デラックスツインChapter 4（45平米） / 【連泊割】2泊以上でお得にホテル滞在満喫プラン/素泊まり",
+<<<<<<< Updated upstream
        "krw": 869642,
+=======
+       "krw": 865943,
+>>>>>>> Stashed changes
        "jpy": 95565,
        "free_cancel": null,
        "breakfast": false,
@@ -162,7 +182,11 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "【禁煙】スーペリアツインChapter 3（35平米） / 【シンプルステイ】博多駅徒歩７分 観光やビジネスに最適/素泊まり",
+<<<<<<< Updated upstream
        "krw": 869642,
+=======
+       "krw": 865943,
+>>>>>>> Stashed changes
        "jpy": 95565,
        "free_cancel": null,
        "breakfast": false,
@@ -187,7 +211,11 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 36,
+=======
+     "offer_count": 198,
+>>>>>>> Stashed changes
      "prior_low_krw": 585558,
      "record_low": false,
      "errors": {
@@ -321,7 +349,11 @@
        "source": "official",
        "seller": "공식 홈페이지",
        "room": "デラックスツイン3名 / 【連泊】気ままに自由に～暮らすように泊まる博多旅～(朝食付き)",
+<<<<<<< Updated upstream
        "krw": 976958,
+=======
+       "krw": 972803,
+>>>>>>> Stashed changes
        "jpy": 107358,
        "free_cancel": null,
        "breakfast": true,
@@ -444,7 +476,11 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 26,
+=======
+     "offer_count": 87,
+>>>>>>> Stashed changes
      "prior_low_krw": 821715,
      "record_low": false,
      "errors": {
@@ -701,7 +737,11 @@
        "jpy_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 58,
+=======
+     "offer_count": 144,
+>>>>>>> Stashed changes
      "prior_low_krw": 573214,
      "record_low": false,
      "errors": {
@@ -779,7 +819,11 @@
        "source": "official",
        "seller": "공식 홈페이지",
        "room": "ソファベッド付きスタンダードツインルーム / 【返金不可】素泊まり ドリンクチケット付き",
+<<<<<<< Updated upstream
        "krw": 464100,
+=======
+       "krw": 462126,
+>>>>>>> Stashed changes
        "jpy": 51000,
        "free_cancel": null,
        "breakfast": false,
@@ -793,7 +837,11 @@
        "source": "official",
        "seller": "공식 홈페이지",
        "room": "ソファベッド付きスタンダードクイーン / 【返金不可】素泊まり ドリンクチケット付き",
+<<<<<<< Updated upstream
        "krw": 464100,
+=======
+       "krw": 462126,
+>>>>>>> Stashed changes
        "jpy": 51000,
        "free_cancel": null,
        "breakfast": false,
@@ -958,7 +1006,11 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 99,
+=======
+     "offer_count": 443,
+>>>>>>> Stashed changes
      "prior_low_krw": 440379,
      "record_low": false,
      "errors": {
@@ -1027,8 +1079,53 @@
        "source": "agoda",
        "seller": "아고다 직접",
        "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연) (Main Building Japanese Style Room(8 Tatami) (Non Smoking)) / 메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+<<<<<<< Updated upstream
        "krw": 1089244,
        "jpy": 119697,
+=======
+       "krw": 1097965,
+       "jpy": 121171,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/5646412.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "naver",
+       "seller": "아고다",
+       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+       "krw": 1150754,
+       "jpy": 126997,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
+       "jpy_estimated": true
+      },
+      {
+       "source": "naver",
+       "seller": "아고다",
+       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+       "krw": 1155086,
+       "jpy": 127475,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연) (Main Building Japanese Style Room(8 Tatami) (Non Smoking)) / 메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+       "krw": 1159054,
+       "jpy": 127913,
+>>>>>>> Stashed changes
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -1041,7 +1138,11 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "◆【本館】和室８畳◆ / ★期間限定特別特価プラン〜オフのゆふいん〜★",
+<<<<<<< Updated upstream
        "krw": 1441440,
+=======
+       "krw": 1435310,
+>>>>>>> Stashed changes
        "jpy": 158400,
        "free_cancel": null,
        "breakfast": true,
@@ -1180,8 +1281,13 @@
      },
      "by_source": {
       "agoda": {
+<<<<<<< Updated upstream
        "krw": 857366,
        "jpy": 94216,
+=======
+       "krw": 854413,
+       "jpy": 94293,
+>>>>>>> Stashed changes
        "seller": "아고다 직접"
       },
       "rakuten": {
@@ -1199,9 +1305,15 @@
       {
        "source": "agoda",
        "seller": "아고다 직접",
+<<<<<<< Updated upstream
        "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
        "krw": 857366,
        "jpy": 94216,
+=======
+       "room": "Main Residence - Japanese-Western Style Room [Japanese-western room] [Non-smoking] [No view] / Main Residence - Japanese-Western Style Room [Japanese-western room] [Non-smoking] [No view]",
+       "krw": 854413,
+       "jpy": 94293,
+>>>>>>> Stashed changes
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -1214,8 +1326,27 @@
        "source": "agoda",
        "seller": "아고다 직접",
        "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
+<<<<<<< Updated upstream
        "krw": 865006,
        "jpy": 95056,
+=======
+       "krw": 856675,
+       "jpy": 94542,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
+       "krw": 864231,
+       "jpy": 95376,
+>>>>>>> Stashed changes
        "free_cancel": false,
        "breakfast": false,
        "dinner": false,
@@ -1407,7 +1538,11 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 42,
+=======
+     "offer_count": 179,
+>>>>>>> Stashed changes
      "prior_low_krw": 796151,
      "record_low": false,
      "errors": {

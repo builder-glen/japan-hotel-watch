@@ -38,6 +38,8 @@ async function init() {
 
   const app = document.getElementById('app');
   app.innerHTML = '';
+  const health = sourceHealth(data);
+  if (health) app.appendChild(health);
   data.stays.forEach(stay => app.appendChild(renderStay(stay, series)));
 }
 
@@ -147,6 +149,25 @@ function renderHotel(h, stay, idx, series) {
       '일부 판매처 조회 실패: ' + errs.map(([k, v]) => `${k} (${v})`).join(', ')));
   }
   return card;
+}
+
+/** 조회 경로 중 실패한 게 있으면 알린다.
+ *  한 경로가 통째로 빠진 채 계산된 "최저가"를 그냥 믿게 두면 안 된다. */
+function sourceHealth(data) {
+  const hotels = data.stays.flatMap(s => s.hotels);
+  const failed = {};
+  hotels.forEach(h => Object.keys(h.errors || {}).forEach(src => {
+    failed[src] = (failed[src] || 0) + 1;
+  }));
+  const names = Object.keys(failed);
+  if (!names.length) return null;
+
+  const box = $('div', 'health');
+  box.appendChild($('strong', null, '일부 조회 경로에서 값을 못 받았습니다. '));
+  box.appendChild(document.createTextNode(
+    names.map(s => `${SOURCE_LABEL[s] || s} ${failed[s]}곳`).join(', ') +
+    ' 실패. 아래 금액은 나머지 경로만으로 계산된 값이라, 평소보다 비싸 보일 수 있습니다.'));
+  return box;
 }
 
 const SOURCE_LABEL = {

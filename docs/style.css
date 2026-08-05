@@ -405,3 +405,15 @@ footer a { color: var(--accent); }
 
 .xcheck-row.win span:first-child { color: var(--accent); font-weight: 600; }
 .xcheck-row.win .xcheck-val { color: var(--accent); }
+
+/* 조회 경로 실패 알림 */
+.health {
+  background: var(--gold-soft);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 11px 13px;
+  margin-bottom: 4px;
+  font-size: .79rem;
+  line-height: 1.5;
+}
+.health strong { color: var(--gold); }

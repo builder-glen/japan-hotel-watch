@@ -9,6 +9,7 @@ import json
 import statistics
 import sys
 import time
+import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -176,7 +177,11 @@ def _top_per_source(offers):
 
 
 def _with_retry(fn, attempts=3, delay=6):
-    """네이버·라쿠텐 모두 간헐적으로 빈 응답을 준다. 몇 초 두고 다시 물어보면 대개 온다."""
+    """소스들이 간헐적으로 빈 응답이나 5xx 를 준다. 몇 초 두고 다시 물어보면 대개 온다.
+
+    네이버는 GitHub 데이터센터 IP 에 레이트리밋을 걸어 500 을 뱉는 일이 있어
+    재시도 간격을 점점 늘린다(6초 → 12초 → 24초).
+    """
     last = ""
     for i in range(attempts):
         try:
@@ -187,16 +192,32 @@ def _with_retry(fn, attempts=3, delay=6):
         except Exception as exc:
             last = f"{type(exc).__name__}: {exc}"
         if i < attempts - 1:
-            time.sleep(delay)
+            time.sleep(delay * (2 ** i))
     return [], last
 
 
 def _fx_rate(offers, previous):
-    """네이버가 같은 상품의 원화·엔화를 동시에 주므로 거기서 환율을 역산한다."""
+    """1순위: 네이버가 같은 상품의 원화·엔화를 동시에 주므로 거기서 역산.
+
+    네이버가 막히면 라쿠텐·공식(엔화만)의 원화 환산이 통째로 틀어지므로
+    공개 환율 API → 직전 값 순으로 물러난다.
+    """
     pairs = [o["krw"] / o["jpy"] for o in offers if o.get("krw") and o.get("jpy")]
     if pairs:
         return statistics.median(pairs)
-    return previous or FX_FALLBACK
+    return _fx_from_api() or previous or FX_FALLBACK
+
+
+def _fx_from_api(timeout=15):
+    try:
+        req = urllib.request.Request(
+            "https://open.er-api.com/v6/latest/JPY",
+            headers={"User-Agent": "japan-hotel-watch"})
+        with urllib.request.urlopen(req, timeout=timeout) as res:
+            rate = json.load(res).get("rates", {}).get("KRW")
+        return float(rate) if rate else None
+    except Exception:
+        return None
 
 
 def _history_lows():
