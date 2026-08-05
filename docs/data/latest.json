@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
  "collected_at": "2026-08-06T00:10:26+09:00",
+=======
+ "collected_at": "2026-08-06T00:36:02+09:00",
+>>>>>>> Stashed changes
  "adults": 3,
  "rooms": 1,
  "fx_jpy_krw": 9.0613,
@@ -23,8 +27,8 @@
       "source": "naver",
       "seller": "트립닷컴",
       "room": "트윈룸(chapter 3) - 무료 Wi-Fi",
-      "krw": 585866,
-      "jpy": 64656,
+      "krw": 585558,
+      "jpy": 64622,
       "free_cancel": true,
       "breakfast": false,
       "dinner": false,
@@ -33,9 +37,14 @@
      },
      "by_source": {
       "naver": {
-       "krw": 585866,
-       "jpy": 64656,
+       "krw": 585558,
+       "jpy": 64622,
        "seller": "트립닷컴"
+      },
+      "agoda": {
+       "krw": 592184,
+       "jpy": 65353,
+       "seller": "아고다 직접"
       },
       "rakuten": {
        "krw": 803421,
@@ -48,8 +57,8 @@
        "source": "naver",
        "seller": "트립닷컴",
        "room": "트윈룸(chapter 3) - 무료 Wi-Fi",
-       "krw": 585866,
-       "jpy": 64656,
+       "krw": 585558,
+       "jpy": 64622,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -94,6 +103,20 @@
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
       },
       {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "챕터 3 - 슈페리어 트윈룸 (금연) (Chapter 3 - Superior Twin Room Non-Smoking) / 챕터 3 - 슈페리어 트윈룸 (금연)",
+       "krw": 592184,
+       "jpy": 65353,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/9115847.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "naver",
        "seller": "트립비토즈",
        "room": "슈피리어 트윈룸, 금연 (Chapter 3)",
@@ -104,6 +127,62 @@
        "dinner": false,
        "official": false,
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5041269/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "챕터 3 - 슈페리어 트윈룸 (금연) (Chapter 3 - Superior Twin Room Non-Smoking) / 챕터 3 - 슈페리어 트윈룸 (금연)",
+       "krw": 686304,
+       "jpy": 75740,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/9115847.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "챕터 3 - 슈페리어 트윈룸 (금연) (Chapter 3 - Superior Twin Room Non-Smoking) / 챕터 3 - 슈페리어 트윈룸 (금연)",
+       "krw": 701149,
+       "jpy": 77378,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/9115847.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "챕터 4 - 디럭스 트윈룸 (금연) (Chapter 4 - Deluxe Twin Room Non-Smoking) / 챕터 4 - 디럭스 트윈룸 (금연)",
+       "krw": 727225,
+       "jpy": 80256,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/9115847.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "챕터 4 - 디럭스 트윈룸 (금연) (Chapter 4 - Deluxe Twin Room Non-Smoking) / 챕터 4 - 디럭스 트윈룸 (금연)",
+       "krw": 735857,
+       "jpy": 81209,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/9115847.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
       },
       {
        "source": "rakuten",
@@ -176,8 +255,13 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 195,
      "prior_low_krw": 585866,
+=======
+     "offer_count": 196,
+     "prior_low_krw": 585558,
+>>>>>>> Stashed changes
      "record_low": false,
      "errors": {}
     },
@@ -189,22 +273,34 @@
      "naver_url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
      "rakuten_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/172876?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
      "best": {
-      "source": "naver",
-      "seller": "하나투어",
-      "room": "Deluxe Twin Room, Multiple Beds, Non Smoking (Max 3 Adults)",
-      "krw": 864718,
-      "jpy": 95430,
-      "free_cancel": false,
+      "source": "official",
+      "seller": "공식 홈페이지",
+      "room": "デラックスツイン3名 / 【連泊】気ままに自由に～暮らすように泊まる博多旅～(食事なし)",
+      "krw": 821715,
+      "jpy": 90684,
+      "free_cancel": null,
       "breakfast": false,
       "dinner": false,
-      "official": false,
-      "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      "official": true,
+      "conditional": false,
+      "url": "https://go-jrhotel-m.reservation.jp/ja/hotels/blossom-hakatapremier/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+      "krw_estimated": true
      },
      "by_source": {
+      "official": {
+       "krw": 821715,
+       "jpy": 90684,
+       "seller": "공식 홈페이지"
+      },
+      "agoda": {
+       "krw": 825613,
+       "jpy": 91114,
+       "seller": "아고다 직접"
+      },
       "naver": {
-       "krw": 864718,
-       "jpy": 95430,
-       "seller": "하나투어"
+       "krw": 872354,
+       "jpy": 96272,
+       "seller": "트립비토즈"
       },
       "rakuten": {
        "krw": 951437,
@@ -214,16 +310,46 @@
      },
      "offers": [
       {
-       "source": "naver",
-       "seller": "하나투어",
-       "room": "Deluxe Twin Room, Multiple Beds, Non Smoking (Max 3 Adults)",
-       "krw": 864718,
-       "jpy": 95430,
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "デラックスツイン3名 / 【連泊】気ままに自由に～暮らすように泊まる博多旅～(食事なし)",
+       "krw": 821715,
+       "jpy": 90684,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-jrhotel-m.reservation.jp/ja/hotels/blossom-hakatapremier/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "Deluxe Twin Room (3 beds) (Deluxe Twin Room (3 Beds)) / Deluxe Twin Room (3 beds)",
+       "krw": 825613,
+       "jpy": 91114,
        "free_cancel": false,
        "breakfast": false,
        "dinner": false,
        "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+       "channel": 21,
+       "url": "https://www.agoda.com/ko-kr/hotel/16216159.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "デラックスツイン3名 / 【スタンダード】ご宿泊直前までご予約可能！1・2階には人気飲食店が7店舗♪(食事なし)",
+       "krw": 865128,
+       "jpy": 95475,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-jrhotel-m.reservation.jp/ja/hotels/blossom-hakatapremier/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
       },
       {
        "source": "naver",
@@ -274,6 +400,47 @@
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
       },
       {
+       "source": "naver",
+       "seller": "부킹닷컴",
+       "room": "트리플룸",
+       "krw": 913079,
+       "jpy": 100767,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/N4849822/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "디럭스 트윈룸 (Deluxe Twin Room) / 디럭스 트윈룸",
+       "krw": 928610,
+       "jpy": 102481,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/16216159.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "디럭스 트윈룸 (Deluxe Twin Room) / 디럭스 트윈룸",
+       "krw": 932083,
+       "jpy": 102864,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/16216159.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "＜禁煙＞デラックスツイン 3名 / 【連泊】気ままに自由に〜暮らすように泊まる博多旅〜(食事なし)",
@@ -288,6 +455,34 @@
        "krw_estimated": true
       },
       {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "デラックスツイン3名 / 【連泊】気ままに自由に～暮らすように泊まる博多旅～(朝食付き)",
+       "krw": 972804,
+       "jpy": 107358,
+       "free_cancel": null,
+       "breakfast": true,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-jrhotel-m.reservation.jp/ja/hotels/blossom-hakatapremier/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "트리플룸 (Triple Room) / 트리플룸",
+       "krw": 990180,
+       "jpy": 109276,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/16216159.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "＜禁煙＞デラックスツイン 3名 / 【スタンダード】ご宿泊直前までご予約可能！1・2階には人気飲食店が7店舗(食事なし)",
@@ -299,6 +494,34 @@
        "capacity": "3人",
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/172876?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "Deluxe Twin Room (3 beds) (Deluxe Twin Room (3 Beds)) / Deluxe Twin Room (3 beds)",
+       "krw": 1016397,
+       "jpy": 112169,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/16216159.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "デラックスツイン3名 / 【スタンダード】ご宿泊直前までご予約可能！1・2階には人気飲食店が7店舗♪(朝食付き)",
+       "krw": 1024208,
+       "jpy": 113031,
+       "free_cancel": null,
+       "breakfast": true,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-jrhotel-m.reservation.jp/ja/hotels/blossom-hakatapremier/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
        "krw_estimated": true
       },
       {
@@ -319,7 +542,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "＜禁煙＞デラックスツイン 3名 / 【連泊】気ままに自由に〜暮らすように泊まる博多旅〜(朝食付き)",
-       "krw": 1126502,
+       "krw": 1126501,
        "jpy": 124320,
        "free_cancel": null,
        "breakfast": true,
@@ -327,6 +550,20 @@
        "capacity": "3人",
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/172876?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "デラックスツイン3名 / 【博多の名店セレクション】5店舗から選べるディナー付きプラン（夕食のみ）",
+       "krw": 1175025,
+       "jpy": 129675,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": true,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-jrhotel-m.reservation.jp/ja/hotels/blossom-hakatapremier/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
        "krw_estimated": true
       },
       {
@@ -344,8 +581,13 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 77,
      "prior_low_krw": 864718,
+=======
+     "offer_count": 87,
+     "prior_low_krw": 821715,
+>>>>>>> Stashed changes
      "record_low": false,
      "errors": {}
     },
@@ -374,6 +616,16 @@
        "jpy": 63260,
        "seller": "트립비토즈"
       },
+      "agoda": {
+       "krw": 589059,
+       "jpy": 65008,
+       "seller": "아고다 직접"
+      },
+      "official": {
+       "krw": 592664,
+       "jpy": 65406,
+       "seller": "공식 홈페이지"
+      },
       "rakuten": {
        "krw": 727849,
        "jpy": 80325,
@@ -395,10 +647,10 @@
       },
       {
        "source": "naver",
-       "seller": "하나투어",
-       "room": "다양한 객실 유형",
-       "krw": 578074,
-       "jpy": 63796,
+       "seller": "트립비토즈",
+       "room": "스탠다드룸, 금연, 욕조 (2 beds + extra)",
+       "krw": 573214,
+       "jpy": 63260,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -430,6 +682,34 @@
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
       },
       {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "스탠다드 와이드 킹베드룸(샤워부스) (Standard Wide King Room with Shower Booth) / 스탠다드 와이드 킹베드룸(샤워부스)",
+       "krw": 589059,
+       "jpy": 65008,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 221,
+       "url": "https://www.agoda.com/ko-kr/hotel/10560831.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "スタンダードツイン（+ソファベッド、バスタブ） / 【室数限定】シンプルプラン＜素泊り＞",
+       "krw": 592664,
+       "jpy": 65406,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-gardenhotels.reservation.jp/ja/hotels/mgh033/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
        "source": "naver",
        "seller": "호텔스닷컴",
        "room": "스탠다드룸, 금연 (1 bed King , Shower)",
@@ -440,6 +720,62 @@
        "dinner": false,
        "official": false,
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5007190/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "スタンダードワイドキング　シャワーブース / 【連泊でお得に滞在！】福岡でゆったり連泊プラン＜素泊り＞",
+       "krw": 655105,
+       "jpy": 72297,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-gardenhotels.reservation.jp/ja/hotels/mgh033/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "スタンダードツイン（+ソファベッド、バスタブ） / 【連泊でお得に滞在！】福岡でゆったり連泊プラン＜素泊り＞",
+       "krw": 655105,
+       "jpy": 72297,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-gardenhotels.reservation.jp/ja/hotels/mgh033/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "スタンダードワイドキング　シャワーブース / シンプルプラン＜素泊り＞",
+       "krw": 658530,
+       "jpy": 72675,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-gardenhotels.reservation.jp/ja/hotels/mgh033/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "スタンダードツイン（+ソファベッド、バスタブ） / シンプルプラン＜素泊り＞",
+       "krw": 658530,
+       "jpy": 72675,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-gardenhotels.reservation.jp/ja/hotels/mgh033/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
       },
       {
        "source": "rakuten",
@@ -510,9 +846,69 @@
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/178294?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
        "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "스탠다드 와이드 킹베드룸(샤워부스) (Standard Wide King Room with Shower Booth) / 스탠다드 와이드 킹베드룸(샤워부스)",
+       "krw": 794726,
+       "jpy": 87705,
+       "free_cancel": true,
+       "breakfast": true,
+       "dinner": false,
+       "official": false,
+       "channel": 221,
+       "url": "https://www.agoda.com/ko-kr/hotel/10560831.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "스탠다드 와이드 킹베드룸(샤워부스) (Standard Wide King Room with Shower Booth) / 스탠다드 와이드 킹베드룸(샤워부스)",
+       "krw": 859436,
+       "jpy": 94847,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/10560831.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "스탠다드 와이드 킹베드룸(샤워부스) (Standard Wide King Room with Shower Booth) / 스탠다드 와이드 킹베드룸(샤워부스)",
+       "krw": 870542,
+       "jpy": 96072,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/10560831.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "스탠다드 와이드 킹베드룸(샤워부스) (Standard Wide King Room with Shower Booth) / 스탠다드 와이드 킹베드룸(샤워부스)",
+       "krw": 870542,
+       "jpy": 96072,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/10560831.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 97,
+=======
+     "offer_count": 146,
+>>>>>>> Stashed changes
      "prior_low_krw": 573214,
      "record_low": false,
      "errors": {}
@@ -525,23 +921,34 @@
      "naver_url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
      "rakuten_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/184507?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
      "best": {
-      "source": "naver",
-      "seller": "부킹닷컴",
-      "room": "컴포트 트윈룸 - 소파 베드",
-      "krw": 486112,
-      "jpy": 53647,
-      "free_cancel": false,
+      "source": "official",
+      "seller": "공식 홈페이지",
+      "room": "ソファベッド付きコンフォートツインルーム / 【返金不可】素泊まり ドリンクチケット付き",
+      "krw": 440379,
+      "jpy": 48600,
+      "free_cancel": null,
       "breakfast": false,
       "dinner": false,
-      "official": false,
-      "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
-      "jpy_estimated": true
+      "official": true,
+      "conditional": false,
+      "url": "https://go-ohr.reservation.jp/ja/hotels/ohr-cltenjin/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+      "krw_estimated": true
      },
      "by_source": {
+      "official": {
+       "krw": 440379,
+       "jpy": 48600,
+       "seller": "공식 홈페이지"
+      },
       "naver": {
        "krw": 486112,
        "jpy": 53647,
        "seller": "부킹닷컴"
+      },
+      "agoda": {
+       "krw": 506926,
+       "jpy": 55944,
+       "seller": "아고다 직접"
       },
       "rakuten": {
        "krw": 535523,
@@ -550,6 +957,62 @@
       }
      },
      "offers": [
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "ソファベッド付きコンフォートツインルーム / 【返金不可】素泊まり ドリンクチケット付き",
+       "krw": 440379,
+       "jpy": 48600,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-ohr.reservation.jp/ja/hotels/ohr-cltenjin/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "ソファベッド付きコンフォートクイーンルーム / 【返金不可】素泊まり ドリンクチケット付き",
+       "krw": 440379,
+       "jpy": 48600,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-ohr.reservation.jp/ja/hotels/ohr-cltenjin/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "ソファベッド付きスタンダードツインルーム / 【返金不可】素泊まり ドリンクチケット付き",
+       "krw": 462127,
+       "jpy": 51000,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-ohr.reservation.jp/ja/hotels/ohr-cltenjin/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "ソファベッド付きスタンダードクイーン / 【返金不可】素泊まり ドリンクチケット付き",
+       "krw": 462127,
+       "jpy": 51000,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-ohr.reservation.jp/ja/hotels/ohr-cltenjin/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
       {
        "source": "naver",
        "seller": "부킹닷컴",
@@ -574,6 +1037,48 @@
        "dinner": false,
        "official": false,
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3",
+       "jpy_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "ソファベッド付きコンフォートツインルーム / 【クロススイーツ東京浅草／開業記念】【公式サイト限定・割引】素泊まりプラン",
+       "krw": 486592,
+       "jpy": 53700,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://go-ohr.reservation.jp/ja/hotels/ohr-cltenjin/plans?checkin_date=20260820&checkout_date=20260822&adults=3&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0&sort=1&dateUndecidedFlg=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "Comfort,Twin,Regular floor / Comfort,Twin,Regular floor",
+       "krw": 506926,
+       "jpy": 55944,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/33587784.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "Comfort,Double,Regular floor / Comfort,Double,Regular floor",
+       "krw": 506926,
+       "jpy": 55944,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/33587784.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
        "jpy_estimated": true
       },
       {
@@ -615,6 +1120,34 @@
        "url": "https://hotels.naver.com/accommodation/detail/hotels/N5303716/rates?checkIn=2026-08-20&checkOut=2026-08-22&adultCnt=3"
       },
       {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "컴포트 퀸룸 (소파베드, 금연) (Comfort Queen Room with Sofa Bed - Non-Smoking) / 컴포트 퀸룸 (소파베드, 금연)",
+       "krw": 529854,
+       "jpy": 58474,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/33587784.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "컴포트 트윈룸 (소파베드, 금연) (Comfort Twin Room with Sofa Bed - Non-Smoking) / 컴포트 트윈룸 (소파베드, 금연)",
+       "krw": 529854,
+       "jpy": 58474,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/33587784.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "ソファベッド付きコンフォートツイン / 【返金不可】素泊まり ドリンクチケット付き",
@@ -641,6 +1174,20 @@
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/184507?f_nen1=2026&f_tuki1=8&f_hi1=20&f_nen2=2026&f_tuki2=8&f_hi2=22&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
        "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "스탠다드 퀸룸 (소파베드, 금연) (Standard Queen Room with Sofa Bed - Non-Smoking) / 스탠다드 퀸룸 (소파베드, 금연)",
+       "krw": 559095,
+       "jpy": 61701,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1141,
+       "url": "https://www.agoda.com/ko-kr/hotel/33587784.html?checkIn=2026-08-20&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
       },
       {
        "source": "rakuten",
@@ -685,8 +1232,13 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 394,
      "prior_low_krw": 486112,
+=======
+     "offer_count": 442,
+     "prior_low_krw": 440379,
+>>>>>>> Stashed changes
      "record_low": false,
      "errors": {}
     }
@@ -727,9 +1279,14 @@
        "jpy": 118800,
        "seller": "라쿠텐 트래블"
       },
+      "agoda": {
+       "krw": 1097965,
+       "jpy": 121171,
+       "seller": "아고다 직접"
+      },
       "naver": {
-       "krw": 1085628,
-       "jpy": 119809,
+       "krw": 1150754,
+       "jpy": 126997,
        "seller": "아고다"
       }
      },
@@ -749,16 +1306,57 @@
        "krw_estimated": true
       },
       {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연) (Main Building Japanese Style Room(8 Tatami) (Non Smoking)) / 메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+       "krw": 1097965,
+       "jpy": 121171,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/5646412.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "naver",
        "seller": "아고다",
        "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
-       "krw": 1085628,
-       "jpy": 119809,
+       "krw": 1150754,
+       "jpy": 126997,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
+       "jpy_estimated": true
+      },
+      {
+       "source": "naver",
+       "seller": "아고다",
+       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+       "krw": 1155086,
+       "jpy": 127475,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
        "official": false,
        "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연) (Main Building Japanese Style Room(8 Tatami) (Non Smoking)) / 메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+       "krw": 1159054,
+       "jpy": 127912,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/5646412.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
        "jpy_estimated": true
       },
       {
@@ -786,6 +1384,20 @@
        "dinner": false,
        "official": false,
        "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "Main Building Japanese Style Room 8 Tatami / Main Building Japanese Style Room 8 Tatami",
+       "krw": 1447148,
+       "jpy": 159706,
+       "free_cancel": true,
+       "breakfast": true,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/5646412.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
        "jpy_estimated": true
       },
       {
@@ -830,6 +1442,20 @@
        "krw_estimated": true
       },
       {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "스탠다드 재패니즈룸 (Standard Japanese Room) / 스탠다드 재패니즈룸",
+       "krw": 1556176,
+       "jpy": 171739,
+       "free_cancel": true,
+       "breakfast": true,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/5646412.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "naver",
        "seller": "아고다",
        "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
@@ -843,10 +1469,24 @@
        "jpy_estimated": true
       },
       {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연) (Main Building Japanese Style Room(8 Tatami) (Non Smoking)) / 메인 빌딩 재패니즈 스타일 룸 (다다미 8조, 금연)",
+       "krw": 1568926,
+       "jpy": 173146,
+       "free_cancel": true,
+       "breakfast": true,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/5646412.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "◆【本館】和室８畳◆ / ★〜夢想園満喫スタンダードプラン〜★",
-       "krw": 1614725,
+       "krw": 1614724,
        "jpy": 178200,
        "free_cancel": null,
        "breakfast": true,
@@ -855,22 +1495,9 @@
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/44815?f_nen1=2026&f_tuki1=8&f_hi1=22&f_nen2=2026&f_tuki2=8&f_hi2=24&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
        "krw_estimated": true
-      },
-      {
-       "source": "naver",
-       "seller": "아고다",
-       "room": "아넥스 재패니즈 스타일 재패니즈 스타일 룸 (금연)",
-       "krw": 1683142,
-       "jpy": 185750,
-       "free_cancel": true,
-       "breakfast": true,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/KYK1070636135/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3",
-       "jpy_estimated": true
       }
      ],
-     "offer_count": 32,
+     "offer_count": 55,
      "prior_low_krw": 1076482,
      "record_low": false,
      "errors": {}
@@ -901,10 +1528,20 @@
        "jpy": 87863,
        "seller": "부킹닷컴"
       },
+      "agoda": {
+       "krw": 854413,
+       "jpy": 94292,
+       "seller": "아고다 직접"
+      },
       "rakuten": {
-       "krw": 953884,
+       "krw": 953883,
        "jpy": 105270,
        "seller": "라쿠텐 트래블"
+      },
+      "official": {
+       "krw": 953883,
+       "jpy": 105270,
+       "seller": "공식 홈페이지"
       }
      },
      "offers": [
@@ -927,18 +1564,6 @@
        "room": "트래디셔널룸, 금연 (Japanese Western Room, Main Building)",
        "krw": 797680,
        "jpy": 88031,
-       "free_cancel": true,
-       "breakfast": false,
-       "dinner": false,
-       "official": false,
-       "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3"
-      },
-      {
-       "source": "naver",
-       "seller": "하나투어",
-       "room": "Japanese - Western Style Room(Main Building), Non-Smoking",
-       "krw": 800948,
-       "jpy": 88392,
        "free_cancel": true,
        "breakfast": false,
        "dinner": false,
@@ -971,10 +1596,64 @@
        "jpy_estimated": true
       },
       {
+       "source": "naver",
+       "seller": "트립닷컴",
+       "room": "재패니즈 웨스턴 스타일룸 (본관, 금연) - 무료 Wi-Fi",
+       "krw": 839994,
+       "jpy": 92701,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "url": "https://hotels.naver.com/accommodation/detail/hotels/N1736235/rates?checkIn=2026-08-22&checkOut=2026-08-24&adultCnt=3"
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "Main Residence - Japanese-Western Style Room [Japanese-western room] [Non-smoking] [No view] / Main Residence - Japanese-Western Style Room [Japanese-western room] [Non-smoking] [No view]",
+       "krw": 854413,
+       "jpy": 94292,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
+       "krw": 856675,
+       "jpy": 94542,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "재패니즈 웨스턴 (Japanese Western) / 재패니즈 웨스턴",
+       "krw": 867925,
+       "jpy": 95784,
+       "free_cancel": false,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "本邸 和洋室【禁煙】 / 時間を気にせず気の向くままに、湯布院観光を満喫♪◆素泊まりプラン◆",
-       "krw": 953884,
+       "krw": 953883,
        "jpy": 105270,
        "free_cancel": null,
        "breakfast": false,
@@ -983,6 +1662,48 @@
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/39494?f_nen1=2026&f_tuki1=8&f_hi1=22&f_nen2=2026&f_tuki2=8&f_hi2=24&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
        "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "本邸　和洋室【禁煙】  / 時間を気にせず気の向くままに、湯布院観光を満喫♪◆素泊まりプラン◆",
+       "krw": 953883,
+       "jpy": 105270,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://booking.guest-relations.com/booking/result?code=f84d70e4cfcae895f03eb4ca8f94a4b2",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "本邸　和洋室【禁煙】  / 【公式限定】日頃の感謝を温泉旅で贈る｜期間限定親孝行サポートプラン＜70歳以上39％ご優待＞",
+       "krw": 983188,
+       "jpy": 108504,
+       "free_cancel": null,
+       "breakfast": true,
+       "dinner": true,
+       "official": true,
+       "conditional": true,
+       "url": "https://booking.guest-relations.com/booking/result?code=f84d70e4cfcae895f03eb4ca8f94a4b2",
+       "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "패밀리룸 (5인) (Family Room for 5 People) / 패밀리룸 (5인)",
+       "krw": 1041871,
+       "jpy": 114980,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 21,
+       "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
       },
       {
        "source": "rakuten",
@@ -996,6 +1717,48 @@
        "capacity": "1人〜5人",
        "official": false,
        "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/39494?f_nen1=2026&f_tuki1=8&f_hi1=22&f_nen2=2026&f_tuki2=8&f_hi2=24&f_hak=2&f_heya_su=1&f_otona_su=3&f_flg=PLAN&f_s1=0&f_s2=0&f_y1=0&f_y2=0&f_y3=0&f_y4=0",
+       "krw_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "離れ（露天なし）和室10畳+洋室8畳【禁煙】  / 時間を気にせず気の向くままに、湯布院観光を満喫♪◆素泊まりプラン◆",
+       "krw": 1151239,
+       "jpy": 127050,
+       "free_cancel": null,
+       "breakfast": false,
+       "dinner": false,
+       "official": true,
+       "conditional": false,
+       "url": "https://booking.guest-relations.com/booking/result?code=f84d70e4cfcae895f03eb4ca8f94a4b2",
+       "krw_estimated": true
+      },
+      {
+       "source": "agoda",
+       "seller": "아고다 직접",
+       "room": "Japanese/Western-style Room*No bath in room / Japanese/Western-style Room*No bath in room",
+       "krw": 1165082,
+       "jpy": 128578,
+       "free_cancel": true,
+       "breakfast": false,
+       "dinner": false,
+       "official": false,
+       "channel": 1,
+       "url": "https://www.agoda.com/ko-kr/hotel/1155918.html?checkIn=2026-08-22&los=2&adults=3&rooms=1&currency=KRW",
+       "jpy_estimated": true
+      },
+      {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "離れ（露天なし）和室10畳+洋室8畳【禁煙】  / 【公式限定】日頃の感謝を温泉旅で贈る｜期間限定親孝行サポートプラン＜70歳以上39％ご優待＞",
+       "krw": 1223956,
+       "jpy": 135075,
+       "free_cancel": null,
+       "breakfast": true,
+       "dinner": true,
+       "official": true,
+       "conditional": true,
+       "url": "https://booking.guest-relations.com/booking/result?code=f84d70e4cfcae895f03eb4ca8f94a4b2",
        "krw_estimated": true
       },
       {
@@ -1013,10 +1776,24 @@
        "krw_estimated": true
       },
       {
+       "source": "official",
+       "seller": "공식 홈페이지",
+       "room": "本邸　和洋室【禁煙】  / 大切な人との会話が弾む由布院の四季の風景を感じるオリジナル会席◇創作会席プラン◇＜夕朝食付＞",
+       "krw": 1611734,
+       "jpy": 177870,
+       "free_cancel": null,
+       "breakfast": true,
+       "dinner": true,
+       "official": true,
+       "conditional": false,
+       "url": "https://booking.guest-relations.com/booking/result?code=f84d70e4cfcae895f03eb4ca8f94a4b2",
+       "krw_estimated": true
+      },
+      {
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "本邸 和洋室【禁煙】 / 【夕朝食個室確約♪】周りを気にせず由布院の温泉とグルメをゆったり満喫＜夕朝食付＞",
-       "krw": 1731344,
+       "krw": 1731343,
        "jpy": 191070,
        "free_cancel": null,
        "breakfast": true,
@@ -1030,7 +1807,7 @@
        "source": "rakuten",
        "seller": "라쿠텐 트래블",
        "room": "本邸 和洋室【禁煙】 / 記念日、誕生日、還暦、新婚旅行等◇５大特典付記念日プラン◇【ホールケーキ＆特別特典＆記念撮影】",
-       "krw": 1809090,
+       "krw": 1809089,
        "jpy": 199650,
        "free_cancel": null,
        "breakfast": true,
@@ -1041,7 +1818,11 @@
        "krw_estimated": true
       }
      ],
+<<<<<<< Updated upstream
      "offer_count": 146,
+=======
+     "offer_count": 176,
+>>>>>>> Stashed changes
      "prior_low_krw": 796151,
      "record_low": false,
      "errors": {}

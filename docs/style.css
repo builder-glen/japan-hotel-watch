@@ -402,3 +402,6 @@ footer a { color: var(--accent); }
   .card { padding: 15px; }
   .links a { flex: 1 1 100%; }
 }
+
+.xcheck-row.win span:first-child { color: var(--accent); font-weight: 600; }
+.xcheck-row.win .xcheck-val { color: var(--accent); }

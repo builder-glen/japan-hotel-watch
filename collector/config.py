@@ -20,6 +20,7 @@ STAYS = [
                 "name_ja": "THE BASICS FUKUOKA",
                 "naver_id": "N5041269",
                 "rakuten_no": "177662",
+                "agoda_id": 9115847,
                 "official": "https://www.thebasics.jp/fukuoka/",
             },
             {
@@ -28,7 +29,13 @@ STAYS = [
                 "name_ja": "THE BLOSSOM HAKATA Premier",
                 "naver_id": "N4849822",
                 "rakuten_no": "172876",
+                "agoda_id": 16216159,
                 "official": "https://www.jrk-hotels.co.jp/Hakata_premier/",
+                "official_engine": {
+                    "engine": "reservation_jp",
+                    "base": "https://go-jrhotel-m.reservation.jp",
+                    "code": "blossom-hakatapremier",
+                },
             },
             {
                 "key": "mitsui",
@@ -36,7 +43,13 @@ STAYS = [
                 "name_ja": "三井ガーデンホテル福岡中洲",
                 "naver_id": "N5007190",
                 "rakuten_no": "178294",
+                "agoda_id": 10560831,
                 "official": "https://www.gardenhotels.co.jp/fukuoka-nakasu/",
+                "official_engine": {
+                    "engine": "reservation_jp",
+                    "base": "https://go-gardenhotels.reservation.jp",
+                    "code": "mgh033",
+                },
             },
             {
                 "key": "crosslife",
@@ -44,7 +57,13 @@ STAYS = [
                 "name_ja": "クロスライフ博多天神",
                 "naver_id": "N5303716",
                 "rakuten_no": "184507",
+                "agoda_id": 33587784,
                 "official": "https://crosslife-hakatatenjin.orixhotelsandresorts.com/",
+                "official_engine": {
+                    "engine": "reservation_jp",
+                    "base": "https://go-ohr.reservation.jp",
+                    "code": "ohr-cltenjin",
+                },
             },
         ],
     },
@@ -63,6 +82,7 @@ STAYS = [
                 "name_ja": "由布院温泉 山のホテル 夢想園",
                 "naver_id": "KYK1070636135",
                 "rakuten_no": "44815",
+                "agoda_id": 5646412,
                 "official": "https://www.musouen.co.jp/",
             },
             {
@@ -71,7 +91,17 @@ STAYS = [
                 "name_ja": "由布院 梅園 GARDEN RESORT",
                 "naver_id": "N1736235",
                 "rakuten_no": "39494",
+                "agoda_id": 1155918,
                 "official": "https://www.yufuin-baien.com/",
+                # key/secret 은 위젯 JS 에 평문으로 공개돼 있는 값이라 비밀이 아니다.
+                "official_engine": {
+                    "engine": "tripla",
+                    "api": "https://api.guest-relations.com",
+                    "hotel_id": "2904",
+                    "key": "c8c604a2d81f7b2fe901",
+                    "secret": "1882351c176e635f5c64",
+                    "book_url": "https://booking.guest-relations.com/booking/result?code=f84d70e4cfcae895f03eb4ca8f94a4b2",
+                },
             },
         ],
     },

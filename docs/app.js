@@ -132,8 +132,10 @@ function renderHotel(h, stay, idx, series) {
   }
 
   const links = $('div', 'links');
-  links.appendChild(link(h.naver_url, '네이버에서 예약', 'primary'));
-  links.appendChild(link(h.rakuten_url, '라쿠텐에서 예약'));
+  // 첫 버튼은 지금 최저가를 실제로 파는 곳으로 바로 보낸다.
+  if (h.best?.url) links.appendChild(link(h.best.url, `최저가 보기 · ${h.best.seller}`, 'primary'));
+  links.appendChild(link(h.naver_url, '네이버 비교'));
+  links.appendChild(link(h.rakuten_url, '라쿠텐'));
   links.appendChild(link(h.official, '공식 사이트'));
   card.appendChild(links);
 
@@ -147,30 +149,34 @@ function renderHotel(h, stay, idx, series) {
   return card;
 }
 
-const SOURCE_LABEL = { naver: '네이버(해외 OTA)', rakuten: '라쿠텐(일본 내수)' };
+const SOURCE_LABEL = {
+  naver: '네이버 (해외 OTA 10곳)',
+  agoda: '아고다 직접',
+  official: '공식 홈페이지',
+  rakuten: '라쿠텐 (일본 내수)',
+};
 
-/** 서로 독립적인 경로의 최저가를 나란히 보여준다.
+/** 서로 독립적인 네 경로의 최저가를 나란히 보여준다.
  *  한 숫자를 믿게 하는 것보다, 값이 갈리는 걸 보이게 하는 쪽이 정직하다. */
 function crossCheck(bySource) {
-  const rows = Object.entries(bySource || {});
+  const rows = Object.entries(bySource || {}).sort((a, b) => a[1].krw - b[1].krw);
   if (rows.length < 2) return null;
 
   const box = $('div', 'xcheck');
-  box.appendChild($('div', 'xcheck-title', '소스 교차검증'));
+  box.appendChild($('div', 'xcheck-title', `조회 경로 ${rows.length}곳 비교`));
 
-  const vals = rows.map(([, v]) => v.krw);
-  const gap = (Math.max(...vals) - Math.min(...vals)) / Math.min(...vals);
-
-  rows.sort((a, b) => a[1].krw - b[1].krw).forEach(([src, v]) => {
-    const r = $('div', 'xcheck-row');
+  const lo = rows[0][1].krw, hi = rows.at(-1)[1].krw;
+  rows.forEach(([src, v], i) => {
+    const r = $('div', 'xcheck-row' + (i === 0 ? ' win' : ''));
     r.appendChild($('span', null, SOURCE_LABEL[src] || src));
-    r.appendChild($('span', 'xcheck-val', `${won(v.krw)}원 · ${v.seller}`));
+    const gapTxt = i === 0 ? '' : ` (+${won(v.krw - lo)})`;
+    r.appendChild($('span', 'xcheck-val', `${won(v.krw)}원${gapTxt}`));
     box.appendChild(r);
   });
 
-  box.appendChild($('div', 'xcheck-note', gap > 0.1
-    ? `두 경로의 차이가 ${Math.round(gap * 100)}%입니다. 판매 중인 객실·플랜이 서로 달라서일 수 있으니 아래 비교표를 확인하세요.`
-    : `두 경로의 차이가 ${Math.round(gap * 100)}%로 서로 들어맞습니다.`));
+  box.appendChild($('div', 'xcheck-note',
+    `가장 싼 경로와 가장 비싼 경로가 ${won(hi - lo)}원 차이납니다.` +
+    ' 경로마다 파는 객실·플랜이 달라서 생기는 차이이니, 아래 비교표에서 객실명을 확인하세요.'));
   return box;
 }
 

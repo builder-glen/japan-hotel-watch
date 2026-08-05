@@ -1,4 +1,4 @@
-"""6개 호텔 × 2개 소스 요금을 수집해 docs/data 로 떨군다.
+"""6개 호텔 × 4개 소스 요금을 수집해 docs/data 로 떨군다.
 
 산출물
   docs/data/latest.json   — 현재 스냅샷 (웹페이지가 읽는 파일)
@@ -15,7 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from config import ADULTS, ROOMS, STAYS
-from sources import naver, rakuten
+from sources import agoda, naver, official, rakuten
 
 KST = timezone(timedelta(hours=9))
 DATA = Path(__file__).resolve().parent.parent / "docs" / "data"
@@ -36,10 +36,14 @@ def main():
     for stay in STAYS:
         for hotel in stay["hotels"]:
             offers, errors = [], {}
-            for name, fn in (
+            sources = [
                 ("naver", lambda: naver.fetch(hotel, stay, ADULTS)),
                 ("rakuten", lambda: rakuten.fetch(hotel, stay, ADULTS, ROOMS)),
-            ):
+                ("agoda", lambda: agoda.fetch(hotel, stay, ADULTS, ROOMS)),
+            ]
+            if hotel.get("official_engine"):
+                sources.append(("official", lambda: official.fetch(hotel, stay, ADULTS, ROOMS)))
+            for name, fn in sources:
                 # 0건도 실패로 취급한다. 조용히 넘어가면 "한쪽 소스가 통째로 빠진 값"을
                 # 최저가로 착각하게 된다.
                 got, err = _with_retry(fn)
@@ -70,7 +74,9 @@ def main():
 
             offers = [o for o in offers if o.get("krw")]
             offers.sort(key=lambda o: o["krw"])
-            best = offers[0] if offers else None
+            # 조건부 플랜(나이·거주지 우대)은 대표가에서 뺀다. 목록에는 남긴다.
+            bookable = [o for o in offers if not o.get("conditional")]
+            best = bookable[0] if bookable else None
 
             key = f"{stay['id']}/{hotel['key']}"
             prior_low = lows.get(key)
@@ -152,6 +158,8 @@ def _best_by_source(offers):
     """소스별 최저가. 서로 독립적인 경로라 값이 크게 갈리면 둘 중 하나가 이상하다는 신호다."""
     out = {}
     for o in offers:  # 이미 가격 오름차순
+        if o.get("conditional"):
+            continue
         out.setdefault(o["source"], {"krw": o["krw"], "jpy": o["jpy"], "seller": o["seller"]})
     return out
 
