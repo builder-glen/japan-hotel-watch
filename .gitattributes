@@ -1,0 +1,2 @@
+# history.jsonl 은 append-only 라서 두 실행이 겹쳐도 양쪽 줄을 다 살리면 된다.
+docs/data/history.jsonl merge=union

@@ -25,6 +25,10 @@ _H4 = re.compile(r"<h4>\s*(.*?)\s*</h4>", re.S)
 _ROOM_BLOCK = re.compile(r"<li id='(\d+)-([^']+)'[^>]*class='(?:hiddenTyp )?rm-type-wrapper'")
 _TITLE = re.compile(r'title="([^"]{2,80})"')
 _HINFO = re.compile(r"hinfo\.hotels\s*=\s*(\{.*?\});", re.S)
+# 플랜명 문구로 식사를 추측하지 않는다. 객실 블록에 확정 표기가 들어 있다.
+# 료칸은 소박과 1박2식의 금액 차이가 커서 여기서 틀리면 비교 자체가 무의미해진다.
+_MEAL = re.compile(r'data-locate="roomType-option-meal">\s*<strong>食事</strong>\s*([^<]*)<')
+_PEOPLE = re.compile(r'data-locate="roomType-option-people">\s*<strong>[^<]*</strong>\s*([^<&]*)')
 
 
 def build_url(hotel_no, stay, adults, rooms):
@@ -50,23 +54,24 @@ def fetch(hotel, stay, adults, rooms, timeout=40):
         page = res.read().decode("utf-8", "replace")
 
     plans = _plan_names(page)
-    rooms_map = _room_names(page)
+    meta_map = _room_meta(page)
     prices = _prices(page, hotel["rakuten_no"])
 
     offers = []
     for (plan_id, room_code), total_jpy in prices.items():
         plan_name = plans.get(plan_id, f"플랜 {plan_id}")
-        room_name = rooms_map.get(room_code) or rooms_map.get(f"{plan_id}-{room_code}") or room_code
+        meta = meta_map.get(f"{plan_id}-{room_code}") or meta_map.get(room_code) or {}
         offers.append(
             {
                 "source": "rakuten",
                 "seller": "라쿠텐 트래블",
-                "room": f"{room_name} / {plan_name}",
+                "room": f"{meta.get('name', room_code)} / {plan_name}",
                 "krw": None,  # 환율은 수집기에서 일괄 환산
                 "jpy": total_jpy,
                 "free_cancel": None,
-                "breakfast": _has_meal(plan_name, _BREAKFAST),
-                "dinner": _has_meal(plan_name, _DINNER),
+                "breakfast": meta.get("breakfast"),
+                "dinner": meta.get("dinner"),
+                "capacity": meta.get("capacity"),
                 "official": False,
                 "url": url,
             }
@@ -84,17 +89,24 @@ def _plan_names(page):
     return out
 
 
-def _room_names(page):
-    """객실 코드(ch3t 등) → 객실명. 코드는 시설 내에서 일관되므로 전역 맵으로 충분하다."""
+def _room_meta(page):
+    """(플랜ID-객실코드) → 객실명·식사·정원. 객실 코드만으로도 찾을 수 있게 이중 색인한다."""
+    blocks = [(m.group(1), m.group(2), m.start()) for m in _ROOM_BLOCK.finditer(page)]
     out = {}
-    for m in _ROOM_BLOCK.finditer(page):
-        plan_id, code = m.group(1), m.group(2)
-        t = _TITLE.search(page, m.end(), m.end() + 6000)
-        if not t:
-            continue
-        name = _clean(t.group(1))
-        out.setdefault(code, name)
-        out[f"{plan_id}-{code}"] = name
+    for i, (plan_id, code, pos) in enumerate(blocks):
+        end = blocks[i + 1][2] if i + 1 < len(blocks) else min(len(page), pos + 12000)
+        seg = page[pos:end]
+        t = _TITLE.search(seg)
+        meal = _MEAL.search(seg)
+        ppl = _PEOPLE.search(seg)
+        meta = {
+            "name": _clean(t.group(1)) if t else code,
+            "breakfast": "朝食あり" in meal.group(1) if meal else None,
+            "dinner": "夕食あり" in meal.group(1) if meal else None,
+            "capacity": _clean(ppl.group(1)) if ppl else None,
+        }
+        out.setdefault(code, meta)
+        out[f"{plan_id}-{code}"] = meta
     return out
 
 
@@ -112,19 +124,6 @@ def _prices(page, hotel_no):
             if total > 0:
                 out[(plan_id, code)] = int(total)
     return out
-
-
-# 「夕朝食付」처럼 한 단어에 두 끼가 붙는 표기가 흔해서 키를 따로 둔다.
-_BOTH = ("夕朝食", "朝夕食", "２食付", "2食付", "２食", "1泊2食", "１泊２食")
-_BREAKFAST = _BOTH + ("朝食付", "朝食あり", "朝付", "朝食込")
-_DINNER = _BOTH + ("夕食付", "夕食あり", "夕付", "会席", "夕食込")
-_NO_MEAL = ("素泊", "食事なし", "食事無し")
-
-
-def _has_meal(plan_name, keys):
-    if any(k in plan_name for k in _NO_MEAL):
-        return False
-    return any(k in plan_name for k in keys)
 
 
 def _clean(s):

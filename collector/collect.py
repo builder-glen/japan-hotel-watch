@@ -22,7 +22,9 @@ DATA = Path(__file__).resolve().parent.parent / "docs" / "data"
 LATEST = DATA / "latest.json"
 HISTORY = DATA / "history.jsonl"
 
-MAX_OFFERS = 8  # 호텔당 페이지에 노출할 최저가 상위 건수
+# 소스별로 따로 뽑는다. 전체 상위 N 으로 자르면 네이버 쪽 싼 값이 자리를 다 먹어서
+# 라쿠텐에만 있는 료칸 1박2식 플랜이 통째로 안 보인다.
+MAX_PER_SOURCE = 5
 FX_FALLBACK = 9.1  # 네이버 응답에서 환율을 못 뽑았을 때의 최후 보루 (KRW/JPY)
 
 
@@ -38,10 +40,12 @@ def main():
                 ("naver", lambda: naver.fetch(hotel, stay, ADULTS)),
                 ("rakuten", lambda: rakuten.fetch(hotel, stay, ADULTS, ROOMS)),
             ):
-                try:
-                    offers += fn()
-                except Exception as exc:
-                    errors[name] = f"{type(exc).__name__}: {exc}"
+                # 0건도 실패로 취급한다. 조용히 넘어가면 "한쪽 소스가 통째로 빠진 값"을
+                # 최저가로 착각하게 된다.
+                got, err = _with_retry(fn)
+                if err:
+                    errors[name] = err
+                offers += got
                 time.sleep(1.5)  # 라쿠텐 권고 간격에 맞춘 예의상 딜레이
             raw.append((stay, hotel, offers, errors))
 
@@ -78,7 +82,7 @@ def main():
                     "naver_url": naver._detail_url(hotel, stay, ADULTS),
                     "rakuten_url": rakuten.build_url(hotel["rakuten_no"], stay, ADULTS, ROOMS),
                     "best": best,
-                    "offers": offers[:MAX_OFFERS],
+                    "offers": _top_per_source(offers),
                     "offer_count": len(offers),
                     "prior_low_krw": prior_low,
                     "record_low": record_low,
@@ -141,6 +145,33 @@ def main():
 
     # 전 호텔 실패는 소스가 죽었다는 뜻이므로 워크플로를 실패시킨다.
     return 0 if ok else 1
+
+
+def _top_per_source(offers):
+    """소스별 최저가 상위 몇 건씩 골라 가격순으로 합친다. 같은 판매처가 도배하지 않게 한다."""
+    picked, seen = [], {}
+    for o in offers:  # 이미 가격 오름차순
+        n = seen.get(o["source"], 0)
+        if n < MAX_PER_SOURCE:
+            picked.append(o)
+            seen[o["source"]] = n + 1
+    return sorted(picked, key=lambda o: o["krw"])
+
+
+def _with_retry(fn, attempts=3, delay=6):
+    """네이버·라쿠텐 모두 간헐적으로 빈 응답을 준다. 몇 초 두고 다시 물어보면 대개 온다."""
+    last = ""
+    for i in range(attempts):
+        try:
+            got = fn()
+            if got:
+                return got, ""
+            last = "응답은 정상이나 0건"
+        except Exception as exc:
+            last = f"{type(exc).__name__}: {exc}"
+        if i < attempts - 1:
+            time.sleep(delay)
+    return [], last
 
 
 def _fx_rate(offers, previous):

@@ -104,6 +104,7 @@ function renderHotel(h, stay, idx, series) {
     b.appendChild($('span', 'badge seller', h.best.seller));
     if (h.best.dinner && h.best.breakfast) b.appendChild($('span', 'badge meal', '1박2식'));
     else if (h.best.breakfast) b.appendChild($('span', 'badge meal', '조식 포함'));
+    if (h.best.capacity) b.appendChild($('span', 'badge', `정원 ${h.best.capacity}`));
     if (h.best.free_cancel) b.appendChild($('span', 'badge cancel', '무료 취소'));
     if (h.best.official) b.appendChild($('span', 'badge', '공식 사이트'));
     if (h.best.krw_estimated) b.appendChild($('span', 'badge', '원화 환산값'));
@@ -143,6 +144,8 @@ function offerTable(h) {
     const tags = [];
     if (o.dinner && o.breakfast) tags.push('1박2식');
     else if (o.breakfast) tags.push('조식');
+    else if (o.breakfast === false && o.dinner === false) tags.push('식사 없음');
+    if (o.capacity) tags.push(`정원 ${o.capacity}`);
     if (o.free_cancel) tags.push('무료취소');
     if (tags.length) {
       const s = $('span');
