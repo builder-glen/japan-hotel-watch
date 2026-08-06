@@ -120,7 +120,52 @@ python3 collector/collect.py          # 수집
 python3 -m http.server 8000 -d docs   # http://localhost:8000
 ```
 
-## 자동화
+## 자동화 — 두 곳에서 같이 돈다
+
+**네이버가 GitHub Actions 데이터센터 IP 에서 대부분 막힌다** (11회 중 2회만 성공,
+본문 없는 HTTP 500). 로컬 한국 IP 에서는 100% 성공한다. 그래서 둘을 같이 돌린다.
+
+| | GitHub Actions | 로컬 launchd |
+|---|---|---|
+| 가동 | 100% 보장 | 맥이 깨어 있을 때만 |
+| 네이버 | 약 18% | 100% |
+| 아고다·공식·라쿠텐 | 100% | 100% |
+
+맥이 켜져 있으면 4개 소스 완전체, 꺼져 있어도 GitHub 이 3개 소스로 시간을 메운다.
+
+### 값이 지워지지 않게 하는 장치
+
+매 실행 `latest.json` 을 통째로 덮어쓰면, 로컬이 채운 네이버 값을 다음 GitHub 실행이
+지워버린다. 그래서 **소스별로 마지막 값과 시각을 따로 보관**한다(`hotels[].sources`).
+
+- 실패한 소스는 직전 값을 시각과 함께 이어받는다
+- `MAX_AGE_MIN`(3시간) 이내 값만 "지금 최저가" 후보로 인정
+- `KEEP_AGE_MIN`(24시간) 까지는 비교표에 남기고 `N시간 전` 으로 표기
+
+### 로컬 스케줄러
+
+```bash
+# 등록 (이미 되어 있음)
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.glen.japan-hotel-watch.plist
+
+# 상태 확인
+launchctl print gui/$(id -u)/com.glen.japan-hotel-watch | grep -E "state|last exit"
+tail -20 .local-run.log        # 수집 로그
+
+# 즉시 1회 실행
+launchctl kickstart -p gui/$(id -u)/com.glen.japan-hotel-watch
+
+# 해제
+launchctl bootout gui/$(id -u)/com.glen.japan-hotel-watch
+```
+
+`launchd` 는 맥이 자는 동안 실행하지 않고, **깨어날 때 밀린 작업을 한 번** 돌린다.
+뚜껑을 닫아두면 그 시간대는 GitHub 쪽 3개 소스만 남는다.
+
+원격 URL 에 계정명을 박아둬서(`https://immortalemployee2021-gif@github.com/...`)
+`gh` 활성 계정을 다른 걸로 바꿔도 이 레포 push 는 계속 동작한다.
+
+### GitHub Actions
 
 `.github/workflows/collect.yml` 이 매시 정각(UTC)에 돌면서 수집 → `docs/data` 커밋을 한다.
 
