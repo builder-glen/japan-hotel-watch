@@ -150,6 +150,7 @@ def main():
                 "adults": ADULTS,
                 "rooms": ROOMS,
                 "fx_jpy_krw": round(fx, 4),
+                "max_age_min": MAX_AGE_MIN,  # 페이지가 "오래된 값" 판정에 쓴다
                 "stays": stays_out,
             },
             ensure_ascii=False,

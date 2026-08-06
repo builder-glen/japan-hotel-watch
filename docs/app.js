@@ -144,36 +144,51 @@ function renderHotel(h, stay, idx, series) {
 
   if (h.offers?.length > 1) card.appendChild(offerTable(h));
 
-  const errs = Object.entries(h.errors || {});
-  if (errs.length) {
+  // 직전 값으로 메워진 경로는 굳이 알리지 않는다(금액 옆 시각으로 이미 보인다).
+  // 쓸 값이 아예 없을 때만 이 호텔의 비교가 불완전하다고 밝힌다.
+  const gone = Object.keys(h.errors || {}).filter(src => !h.by_source?.[src]);
+  if (gone.length) {
     card.appendChild($('div', 'err',
-      '일부 판매처 조회 실패: ' + errs.map(([k, v]) => `${k} (${v})`).join(', ')));
+      `${gone.map(s => SOURCE_LABEL[s] || s).join(', ')} 값을 못 받았습니다. ` +
+      '이 경로가 더 쌀 수 있으니 직접 확인해 보세요.'));
   }
   return card;
 }
 
 /** 조회 경로 중 실패한 게 있으면 알린다.
  *  한 경로가 통째로 빠진 채 계산된 "최저가"를 그냥 믿게 두면 안 된다. */
+/** 실제로 쓸 수 없는 상태일 때만 알린다.
+ *
+ *  조회 경로 하나가 이번 회차에 실패하는 건 정상 범위다 — 직전 값을 이어받으니
+ *  몇 분 전 값이면 아무 문제가 없다. 그때마다 경고를 띄우면 경고가 상시가 되고,
+ *  상시 경고는 아무도 안 읽는다. 값이 실제로 낡았거나 아예 없을 때만 띄운다. */
 function sourceHealth(data) {
   const hotels = data.stays.flatMap(s => s.hotels);
-  const failed = {};
-  hotels.forEach(h => Object.keys(h.errors || {}).forEach(src => {
-    failed[src] = (failed[src] || 0) + 1;
-  }));
-  const names = Object.keys(failed);
+  const limit = data.max_age_min || 180;
+  const bad = {}; // 소스 → {stale, missing}
+
+  hotels.forEach(h => {
+    Object.keys(h.errors || {}).forEach(src => {
+      const v = h.by_source?.[src];
+      if (!v) (bad[src] ||= { stale: 0, missing: 0 }).missing++;
+      else if (v.age_min > limit) (bad[src] ||= { stale: 0, missing: 0 }).stale++;
+    });
+  });
+
+  const names = Object.keys(bad);
   if (!names.length) return null;
 
-  // 실패한 경로가 직전 값으로 살아있는지 확인 — 살아있으면 공백이 아니라 지연일 뿐이다.
-  const carried = names.filter(s =>
-    hotels.some(h => h.by_source?.[s] && h.by_source[s].age_min > 0));
-
   const box = $('div', 'health');
-  box.appendChild($('strong', null, '이번 조회에서 응답이 없던 경로가 있습니다. '));
+  box.appendChild($('strong', null, '값이 오래된 조회 경로가 있습니다. '));
   box.appendChild(document.createTextNode(
-    names.map(s => `${SOURCE_LABEL[s] || s} ${failed[s]}곳`).join(', ') + '. ' +
-    (carried.length
-      ? '해당 경로는 마지막으로 받은 값을 그대로 쓰고 있습니다. 각 금액 옆의 확인 시각을 봐주세요.'
-      : '아래 금액은 나머지 경로만으로 계산된 값이라, 평소보다 비싸 보일 수 있습니다.')));
+    names.map(s => {
+      const b = bad[s];
+      const parts = [];
+      if (b.missing) parts.push(`${b.missing}곳 값 없음`);
+      if (b.stale) parts.push(`${b.stale}곳 ${Math.round(limit / 60)}시간 이상 지남`);
+      return `${SOURCE_LABEL[s] || s} ${parts.join(', ')}`;
+    }).join(' / ') +
+    '. 이 경로가 더 싼 값을 갖고 있었을 수 있으니, 예약 전에 해당 사이트를 직접 확인해 주세요.'));
   return box;
 }
 
