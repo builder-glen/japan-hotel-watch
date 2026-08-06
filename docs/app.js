@@ -121,6 +121,7 @@ function renderHotel(h, stay, idx, series) {
     else if (h.best.breakfast) b.appendChild($('span', 'badge meal', '조식 포함'));
     else if (h.best.breakfast === false && h.best.dinner === false)
       b.appendChild($('span', 'badge', '식사 없음'));
+    if (h.best.age_min) b.appendChild($('span', 'badge stale', `${agoMin(h.best.age_min)} 확인값`));
     if (h.best.capacity) b.appendChild($('span', 'badge', `정원 ${h.best.capacity}`));
     if (h.best.free_cancel) b.appendChild($('span', 'badge cancel', '무료 취소'));
     if (h.best.official) b.appendChild($('span', 'badge', '공식 사이트'));
@@ -162,12 +163,26 @@ function sourceHealth(data) {
   const names = Object.keys(failed);
   if (!names.length) return null;
 
+  // 실패한 경로가 직전 값으로 살아있는지 확인 — 살아있으면 공백이 아니라 지연일 뿐이다.
+  const carried = names.filter(s =>
+    hotels.some(h => h.by_source?.[s] && h.by_source[s].age_min > 0));
+
   const box = $('div', 'health');
-  box.appendChild($('strong', null, '일부 조회 경로에서 값을 못 받았습니다. '));
+  box.appendChild($('strong', null, '이번 조회에서 응답이 없던 경로가 있습니다. '));
   box.appendChild(document.createTextNode(
-    names.map(s => `${SOURCE_LABEL[s] || s} ${failed[s]}곳`).join(', ') +
-    ' 실패. 아래 금액은 나머지 경로만으로 계산된 값이라, 평소보다 비싸 보일 수 있습니다.'));
+    names.map(s => `${SOURCE_LABEL[s] || s} ${failed[s]}곳`).join(', ') + '. ' +
+    (carried.length
+      ? '해당 경로는 마지막으로 받은 값을 그대로 쓰고 있습니다. 각 금액 옆의 확인 시각을 봐주세요.'
+      : '아래 금액은 나머지 경로만으로 계산된 값이라, 평소보다 비싸 보일 수 있습니다.')));
   return box;
+}
+
+/** 값이 몇 분 전 것인지 짧게. 0이면 방금 값이라 표기하지 않는다. */
+function agoMin(m) {
+  if (!m) return '';
+  if (m < 60) return `${m}분 전`;
+  const h = Math.round(m / 60);
+  return h < 24 ? `${h}시간 전` : `${Math.round(h / 24)}일 전`;
 }
 
 const SOURCE_LABEL = {
@@ -191,7 +206,13 @@ function crossCheck(bySource) {
     const r = $('div', 'xcheck-row' + (i === 0 ? ' win' : ''));
     r.appendChild($('span', null, SOURCE_LABEL[src] || src));
     const gapTxt = i === 0 ? '' : ` (+${won(v.krw - lo)})`;
-    r.appendChild($('span', 'xcheck-val', `${won(v.krw)}원${gapTxt}`));
+    const val = $('span', 'xcheck-val', `${won(v.krw)}원${gapTxt}`);
+    if (v.age_min) {
+      // 이번 조회에서 못 받아 직전 값을 쓰는 경로는 언제 값인지 밝힌다.
+      const old = $('span', 'xcheck-age', ` ${agoMin(v.age_min)}`);
+      val.appendChild(old);
+    }
+    r.appendChild(val);
     box.appendChild(r);
   });
 

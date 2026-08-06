@@ -419,3 +419,6 @@ footer a { color: var(--accent); }
   line-height: 1.5;
 }
 .health strong { color: var(--gold); }
+
+.xcheck-age { color: var(--muted); font-weight: 400; font-size: .92em; }
+.badge.stale { background: var(--gold-soft); color: var(--gold); }

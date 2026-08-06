@@ -28,15 +28,21 @@ HISTORY = DATA / "history.jsonl"
 MAX_PER_SOURCE = 5
 FX_FALLBACK = 9.1  # 네이버 응답에서 환율을 못 뽑았을 때의 최후 보루 (KRW/JPY)
 
+# 소스가 실패했을 때 직전 값을 얼마나 오래 이어쓸지.
+# KEEP  — 이 시간까지는 보관해서 비교표에 남긴다
+# MAX   — 이 시간까지만 "지금 최저가" 후보로 인정한다 (그 이상은 참고용)
+KEEP_AGE_MIN = 24 * 60
+MAX_AGE_MIN = 3 * 60
+
 
 def main():
     now = datetime.now(KST).replace(microsecond=0)
     prev = _load_json(LATEST) or {}
 
-    raw = []  # (stay, hotel, offers, errors)
+    raw = []  # (stay, hotel, {소스: 이번에 받은 offers}, errors)
     for stay in STAYS:
         for hotel in stay["hotels"]:
-            offers, errors = [], {}
+            fresh, errors = {}, {}
             sources = [
                 ("naver", lambda: naver.fetch(hotel, stay, ADULTS)),
                 ("rakuten", lambda: rakuten.fetch(hotel, stay, ADULTS, ROOMS)),
@@ -50,38 +56,48 @@ def main():
                 got, err = _with_retry(fn)
                 if err:
                     errors[name] = err
-                offers += got
+                else:
+                    fresh[name] = got
                 time.sleep(1.5)  # 라쿠텐 권고 간격에 맞춘 예의상 딜레이
-            raw.append((stay, hotel, offers, errors))
+            raw.append((stay, hotel, fresh, errors))
 
-    fx = _fx_rate([o for _, _, offs, _ in raw for o in offs], prev.get("fx_jpy_krw"))
+    fx = _fx_rate([o for _, _, f, _ in raw for offs in f.values() for o in offs],
+                  prev.get("fx_jpy_krw"))
+    prev_sources = _index_prev(prev)
     lows = _history_lows()
 
     stays_out, history_lines = [], []
     for stay in STAYS:
         hotels_out = []
-        for stay_ref, hotel, offers, errors in raw:
+        for stay_ref, hotel, fresh, errors in raw:
             if stay_ref["id"] != stay["id"]:
                 continue
 
-            for o in offers:
-                # 라쿠텐은 엔화만 주므로 환산해서 비교 축을 원화로 통일한다.
-                if o["krw"] is None and o["jpy"] is not None:
-                    o["krw"] = round(o["jpy"] * fx)
-                    o["krw_estimated"] = True
-                if o["jpy"] is None and o["krw"] is not None:
-                    o["jpy"] = round(o["krw"] / fx)
-                    o["jpy_estimated"] = True
+            key = f"{stay['id']}/{hotel['key']}"
+            for offs in fresh.values():
+                for o in offs:
+                    # 엔화만 주는 소스가 있어 비교 축을 원화로 통일한다.
+                    if o["krw"] is None and o["jpy"] is not None:
+                        o["krw"] = round(o["jpy"] * fx)
+                        o["krw_estimated"] = True
+                    if o["jpy"] is None and o["krw"] is not None:
+                        o["jpy"] = round(o["krw"] / fx)
+                        o["jpy_estimated"] = True
 
-            offers = [o for o in offers if o.get("krw")]
+            # 이번에 실패한 소스는 직전 값을 그대로 이어받는다. 매 실행 통째로 덮어쓰면
+            # 로컬(네이버 O)과 GitHub(네이버 X)을 번갈아 돌릴 때 값이 계속 지워진다.
+            merged = _merge_sources(fresh, prev_sources.get(key), now)
+            offers = _flatten(merged, now)
             offers.sort(key=lambda o: o["krw"])
-            # 조건부 플랜(나이·거주지 우대)은 대표가에서 뺀다. 목록에는 남긴다.
-            bookable = [o for o in offers if not o.get("conditional")]
+
+            # 조건부 플랜(나이·거주지 우대)과 너무 오래된 값은 대표가에서 뺀다.
+            bookable = [o for o in offers
+                        if not o.get("conditional") and o["age_min"] <= MAX_AGE_MIN]
             best = bookable[0] if bookable else None
 
-            key = f"{stay['id']}/{hotel['key']}"
             prior_low = lows.get(key)
-            record_low = bool(best and (prior_low is None or best["krw"] < prior_low))
+            record_low = bool(best and best["age_min"] == 0
+                              and (prior_low is None or best["krw"] < prior_low))
 
             hotels_out.append(
                 {
@@ -91,10 +107,11 @@ def main():
                     "best": best,
                     "by_source": _best_by_source(offers),
                     "offers": _top_per_source(offers),
-                    "offer_count": len(offers),
+                    "offer_count": sum(n.get("count", len(n.get("offers") or [])) for n in merged.values()),
                     "prior_low_krw": prior_low,
                     "record_low": record_low,
                     "errors": errors,
+                    "sources": merged,  # 다음 실행이 이어받을 원본
                 }
             )
 
@@ -136,7 +153,7 @@ def main():
                 "stays": stays_out,
             },
             ensure_ascii=False,
-            indent=1,
+            separators=(",", ":"),  # 매시 커밋되는 기계용 파일이라 압축해 둔다
         ),
         encoding="utf-8",
     )
@@ -155,13 +172,61 @@ def main():
     return 0 if ok else 1
 
 
+def _index_prev(prev):
+    """직전 스냅샷의 소스별 원본을 stay/hotel 키로 색인한다."""
+    out = {}
+    for stay in prev.get("stays") or []:
+        for hotel in stay.get("hotels") or []:
+            if hotel.get("sources"):
+                out[f"{stay['id']}/{hotel['key']}"] = hotel["sources"]
+    return out
+
+
+def _merge_sources(fresh, previous, now):
+    """이번에 받은 소스는 갱신, 실패한 소스는 직전 값을 시각과 함께 보존."""
+    merged = {}
+    for name, offs in fresh.items():
+        # 페이지가 소스당 5건만 쓰므로 전부 저장할 필요가 없다(네이버는 90건이 넘는다).
+        keep = sorted((o for o in offs if o.get("krw")), key=lambda o: o["krw"])
+        merged[name] = {"at": now.isoformat(), "offers": keep[:MAX_PER_SOURCE + 1],
+                        "count": len(keep)}
+    for name, node in (previous or {}).items():
+        if name in merged or not node.get("offers"):
+            continue
+        age = _age_min(node.get("at"), now)
+        if age is not None and age <= KEEP_AGE_MIN:
+            merged[name] = node
+    return merged
+
+
+def _flatten(merged, now):
+    """소스별 묶음을 offer 리스트로 펴면서 나이(분)를 붙인다."""
+    out = []
+    for name, node in merged.items():
+        age = _age_min(node.get("at"), now) or 0
+        for o in node.get("offers") or []:
+            if o.get("krw"):
+                out.append({**o, "source": name, "at": node.get("at"), "age_min": age})
+    return out
+
+
+def _age_min(iso, now):
+    try:
+        return max(0, int((now - datetime.fromisoformat(iso)).total_seconds() // 60))
+    except (TypeError, ValueError):
+        return None
+
+
 def _best_by_source(offers):
     """소스별 최저가. 서로 독립적인 경로라 값이 크게 갈리면 둘 중 하나가 이상하다는 신호다."""
     out = {}
     for o in offers:  # 이미 가격 오름차순
         if o.get("conditional"):
             continue
-        out.setdefault(o["source"], {"krw": o["krw"], "jpy": o["jpy"], "seller": o["seller"]})
+        out.setdefault(o["source"], {
+            "krw": o["krw"], "jpy": o["jpy"], "seller": o["seller"],
+            "age_min": o["age_min"],
+        })
     return out
 
 
