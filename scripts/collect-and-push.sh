@@ -7,7 +7,7 @@
 
 set -uo pipefail
 
-REPO="/Users/glen/Documents/japan-hotel-watch"
+REPO="/Users/glen/japan-hotel-watch"
 # launchd 는 로그인 셸 PATH 를 물려받지 않는다. 직접 지정해야 git·gh·python 을 찾는다.
 export PATH="/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 

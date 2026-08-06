@@ -127,9 +127,14 @@ python3 -m http.server 8000 -d docs   # http://localhost:8000
 
 | | GitHub Actions | 로컬 launchd |
 |---|---|---|
-| 가동 | 100% 보장 | 맥이 깨어 있을 때만 |
+| 실제 주기 | **약 2시간** (아래 참고) | 매시 30분 |
 | 네이버 | 약 18% | 100% |
 | 아고다·공식·라쿠텐 | 100% | 100% |
+
+> **GitHub 크론은 매시간 돌지 않는다.** `0 * * * *` 로 걸어도 실측 결과
+> 정각 대비 **7~55분 지연**되고, 아예 건너뛰는 시간대가 있어 실제로는
+> 1시간 46분 ~ 2시간 16분 간격이었다. 무료 러너의 알려진 동작이다.
+> 그래서 로컬 스케줄러가 보조가 아니라 주력에 가깝다.
 
 맥이 켜져 있으면 4개 소스 완전체, 꺼져 있어도 GitHub 이 3개 소스로 시간을 메운다.
 
@@ -143,6 +148,11 @@ python3 -m http.server 8000 -d docs   # http://localhost:8000
 - `KEEP_AGE_MIN`(24시간) 까지는 비교표에 남기고 `N시간 전` 으로 표기
 
 ### 로컬 스케줄러
+
+> 레포는 반드시 **`~/Documents` 밖**에 둬야 한다. macOS TCC 가 보호 폴더
+> (`Documents`·`Desktop`·`Downloads`)에 대한 launchd 접근을 막아서,
+> 그 안에 두면 `/bin/bash: ... Operation not permitted` 로 exit 126 이 난다.
+> 현재 위치는 `~/japan-hotel-watch`.
 
 ```bash
 # 등록 (이미 되어 있음)
@@ -158,6 +168,10 @@ launchctl kickstart -p gui/$(id -u)/com.glen.japan-hotel-watch
 # 해제
 launchctl bootout gui/$(id -u)/com.glen.japan-hotel-watch
 ```
+
+`StartCalendarInterval` 로 **매시 30분**에 걸어 뒀다. GitHub 이 정각~정각+55분에
+흩어져 도니 그 사이를 메우는 배치다. (`StartInterval` 은 등록 시각 기준으로 흘러가
+시각이 예측되지 않아 쓰지 않는다.)
 
 `launchd` 는 맥이 자는 동안 실행하지 않고, **깨어날 때 밀린 작업을 한 번** 돌린다.
 뚜껑을 닫아두면 그 시간대는 GitHub 쪽 3개 소스만 남는다.
