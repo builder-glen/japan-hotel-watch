@@ -274,7 +274,35 @@ function spark(pts) {
     return box;
   }
 
-  const W = 300, H = 64, padX = 6, padTop = 16, padBot = 14;
+  const wrap = $('div', 'chart');
+  const tip = $('div', 'chart-tip');
+  tip.hidden = true;
+  const canvas = $('div', 'chart-canvas');
+  wrap.append(canvas, tip);
+  box.appendChild(wrap);
+  box.appendChild(caption(pts));
+
+  // viewBox 폭을 실제 렌더 폭에 맞춰야 1 유저단위 = 1 CSS픽셀이 된다.
+  // 고정 폭(300)으로 두면 SVG 가 좌우에 여백을 두고 가운데 정렬돼서
+  // 마우스 좌표와 그래프 좌표가 어긋난다. 폭이 바뀌면 다시 그린다.
+  new ResizeObserver(() => drawChart(canvas, tip, pts)).observe(canvas);
+  return box;
+}
+
+function caption(pts) {
+  const ys = pts.map(p => p.krw);
+  const min = Math.min(...ys), max = Math.max(...ys);
+  const span = `${fmtShort(pts[0].t)} ~ ${fmtShort(pts.at(-1).t)}`;
+  return $('div', 'spark-empty', max === min
+    ? `${span} · ${pts.length}회 확인 · 변동 없음`
+    : `${span} · ${pts.length}회 확인 · 최저 ${won(min)}원 / 최고 ${won(max)}원`);
+}
+
+function drawChart(canvas, tip, pts) {
+  const W = Math.round(canvas.clientWidth);
+  if (W < 40) return; // 아직 레이아웃이 안 잡힘
+
+  const H = 64, padX = 6, padTop = 16, padBot = 14;
   const ys = pts.map(p => p.krw);
   const min = Math.min(...ys), max = Math.max(...ys);
   const flat = max === min; // 값이 안 변했으면 바닥에 붙이지 말고 가운데 직선으로
@@ -293,9 +321,8 @@ function spark(pts) {
   const dots = pts.map((_, i) => i)
     .filter(i => i % step === 0 || i === lowIdx || i === lastIdx);
 
-  const wrap = $('div', 'chart');
-  wrap.innerHTML = `
-<svg viewBox="0 0 ${W} ${H}" role="img"
+  canvas.innerHTML = `
+<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img"
      aria-label="가격 추이 ${pts.length}회. 최저 ${won(min)}원, 최고 ${won(max)}원, 현재 ${won(pts.at(-1).krw)}원.">
   <polygon points="${line} ${x(lastIdx)},${H - padBot} ${x(0)},${H - padBot}"
            fill="var(--accent)" opacity=".08"/>
@@ -304,53 +331,32 @@ function spark(pts) {
   ${dots.map(i => `<circle cx="${x(i)}" cy="${y(pts[i].krw)}" r="2"
      fill="${i === lowIdx ? 'var(--gold)' : 'var(--accent)'}"/>`).join('')}
   <circle cx="${x(lastIdx)}" cy="${y(pts[lastIdx].krw)}" r="3.4" fill="var(--accent)"/>
-  ${flat ? '' : `<text x="${labelX(x(lowIdx))}" y="${y(min) + 11}" class="pt-label low"
+  ${flat || lowIdx === lastIdx ? '' : `<text x="${labelX(x(lowIdx))}" y="${y(min) + 11}" class="pt-label low"
      text-anchor="${anchor(x(lowIdx))}">${won(min)}</text>`}
   <text x="${labelX(x(lastIdx))}" y="${y(pts[lastIdx].krw) - 6}" class="pt-label now"
         text-anchor="${anchor(x(lastIdx))}">${won(pts[lastIdx].krw)}</text>
   <g class="hover-layer"></g>
 </svg>`;
 
-  const svg = wrap.querySelector('svg');
-  const tip = $('div', 'chart-tip');
-  tip.hidden = true;
-  wrap.appendChild(tip);
-  attachHover(svg, wrap, tip, pts, x, y, W);
-
-  box.appendChild(wrap);
-
-  const cap = $('div', 'spark-empty');
-  const span = `${fmtShort(pts[0].t)} ~ ${fmtShort(pts.at(-1).t)}`;
-  cap.textContent = flat
-    ? `${span} · ${pts.length}회 확인 · 변동 없음`
-    : `${span} · ${pts.length}회 확인 · 최저 ${won(min)}원 / 최고 ${won(max)}원`;
-  box.appendChild(cap);
-  return box;
-
-  // 라벨이 좌우 끝에서 잘리지 않게 앵커를 바꾼다.
-  function anchor(px) { return px < 40 ? 'start' : px > W - 40 ? 'end' : 'middle'; }
-  function labelX(px) { return px < 40 ? padX : px > W - 40 ? W - padX : px; }
-}
-
-/** 점 위에 손가락/커서를 올리면 그 시점의 금액과 시각을 보여준다. */
-function attachHover(svg, wrap, tip, pts, x, y, W) {
+  const svg = canvas.querySelector('svg');
   const layer = svg.querySelector('.hover-layer');
 
   const show = i => {
     const p = pts[i];
     layer.innerHTML =
-      `<line x1="${x(i)}" y1="0" x2="${x(i)}" y2="64" class="hover-line"/>` +
+      `<line x1="${x(i)}" y1="0" x2="${x(i)}" y2="${H}" class="hover-line"/>` +
       `<circle cx="${x(i)}" cy="${y(p.krw)}" r="4" class="hover-dot"/>`;
     tip.hidden = false;
     tip.textContent = `${fmtShort(p.t)} · ${won(p.krw)}원`;
-    // SVG 좌표(0~W)를 실제 픽셀 비율로 환산해 배치
-    tip.style.left = `${(x(i) / W) * 100}%`;
+    // 1 유저단위 = 1 픽셀이므로 그대로 쓴다. 좌우로 잘리지 않게만 가둔다.
+    const half = tip.offsetWidth / 2 || 40;
+    tip.style.left = `${Math.min(Math.max(x(i), half), W - half)}px`;
   };
   const hide = () => { layer.innerHTML = ''; tip.hidden = true; };
 
   const nearest = ev => {
     const r = svg.getBoundingClientRect();
-    const vx = ((ev.clientX - r.left) / r.width) * W;
+    const vx = ev.clientX - r.left;
     let best = 0, bd = Infinity;
     pts.forEach((_, i) => {
       const d = Math.abs(x(i) - vx);
@@ -362,7 +368,11 @@ function attachHover(svg, wrap, tip, pts, x, y, W) {
   svg.addEventListener('pointermove', ev => show(nearest(ev)));
   svg.addEventListener('pointerdown', ev => show(nearest(ev)));
   svg.addEventListener('pointerleave', hide);
-  wrap.addEventListener('pointercancel', hide);
+  svg.addEventListener('pointercancel', hide);
+
+  // 라벨이 좌우 끝에서 잘리지 않게 앵커를 바꾼다.
+  function anchor(px) { return px < 40 ? 'start' : px > W - 40 ? 'end' : 'middle'; }
+  function labelX(px) { return px < 40 ? padX : px > W - 40 ? W - padX : px; }
 }
 
 function fmtShort(d) {
