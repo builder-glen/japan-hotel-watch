@@ -34,6 +34,8 @@ FX_FALLBACK = 9.1  # 네이버 응답에서 환율을 못 뽑았을 때의 최�
 KEEP_AGE_MIN = 24 * 60
 MAX_AGE_MIN = 3 * 60
 
+EMPTY = "응답은 정상이나 0건"  # 에러가 아니라 "팔 방이 없음" 신호
+
 
 def main():
     now = datetime.now(KST).replace(microsecond=0)
@@ -51,10 +53,10 @@ def main():
             if hotel.get("official_engine"):
                 sources.append(("official", lambda: official.fetch(hotel, stay, ADULTS, ROOMS)))
             for name, fn in sources:
-                # 0건도 실패로 취급한다. 조용히 넘어가면 "한쪽 소스가 통째로 빠진 값"을
-                # 최저가로 착각하게 된다.
+                # 0건은 두 가지 뜻이 될 수 있다 — 조회가 헛돌았거나, 정말 팔 방이 없거나.
+                # 재시도로 구분한다: 끝까지 0건이면 매진으로 보고 값 자체는 비운다.
                 got, err = _with_retry(fn)
-                if err:
+                if err and err != EMPTY:
                     errors[name] = err
                 else:
                     fresh[name] = got
@@ -95,6 +97,11 @@ def main():
                         if not o.get("conditional") and o["age_min"] <= MAX_AGE_MIN]
             best = bookable[0] if bookable else None
 
+            # 여러 경로가 입을 모아 "0건"이라고 하면 조회 실패가 아니라 매진이다.
+            # (에러 없이 정상 응답했는데 결과가 비었다 = 그 인원으로 팔 방이 없다)
+            empty = [n for n, offs in fresh.items() if not offs]
+            sold_out = len(empty) >= 2 and not best
+
             prior_low = lows.get(key)
             record_low = bool(best and best["age_min"] == 0
                               and (prior_low is None or best["krw"] < prior_low))
@@ -110,6 +117,8 @@ def main():
                     "offer_count": sum(n.get("count", len(n.get("offers") or [])) for n in merged.values()),
                     "prior_low_krw": prior_low,
                     "record_low": record_low,
+                    "sold_out": sold_out,
+                    "sold_out_sources": empty,
                     "errors": errors,
                     "sources": merged,  # 다음 실행이 이어받을 원본
                 }
@@ -159,18 +168,24 @@ def main():
         encoding="utf-8",
     )
 
-    ok = sum(1 for s in stays_out for h in s["hotels"] if h["best"])
-    total = sum(len(s["hotels"]) for s in stays_out)
-    print(f"[{now.isoformat()}] {ok}/{total} 호텔 수집, 환율 {fx:.3f} KRW/JPY")
+    hotels_all = [h for s in stays_out for h in s["hotels"]]
+    ok = sum(1 for h in hotels_all if h["best"])
+    sold = sum(1 for h in hotels_all if h["sold_out"])
+    print(f"[{now.isoformat()}] {ok}/{len(hotels_all)} 호텔 수집"
+          + (f", 매진 {sold}곳" if sold else "") + f", 환율 {fx:.3f} KRW/JPY")
     for s in stays_out:
         for h in s["hotels"]:
-            b = h["best"]
-            mark = " ★신규최저" if h["record_low"] else ""
-            line = f"  {s['label']} {h['name_ko']:<22}"
-            print(f"{line} {b['krw']:>9,}원 ({b['seller']}){mark}" if b else f"{line} 수집 실패 {h['errors']}")
+            b, line = h["best"], f"  {s['label']} {h['name_ko']:<22}"
+            if b:
+                print(f"{line} {b['krw']:>9,}원 ({b['seller']})"
+                      + (" ★신규최저" if h["record_low"] else ""))
+            elif h["sold_out"]:
+                print(f"{line} 매진 (3인 객실 없음)")
+            else:
+                print(f"{line} 수집 실패 {h['errors']}")
 
-    # 전 호텔 실패는 소스가 죽었다는 뜻이므로 워크플로를 실패시킨다.
-    return 0 if ok else 1
+    # 매진은 정상 결과다. 전부 '수집 실패'일 때만 소스가 죽은 것으로 보고 워크플로를 실패시킨다.
+    return 0 if (ok or sold) else 1
 
 
 def _index_prev(prev):
@@ -187,6 +202,7 @@ def _merge_sources(fresh, previous, now):
     """이번에 받은 소스는 갱신, 실패한 소스는 직전 값을 시각과 함께 보존."""
     merged = {}
     for name, offs in fresh.items():
+        # 매진(0건)은 직전 값을 이어받지 않는다. 팔지 않는 방을 계속 보여주면 안 된다.
         # 페이지가 소스당 5건만 쓰므로 전부 저장할 필요가 없다(네이버는 90건이 넘는다).
         keep = sorted((o for o in offs if o.get("krw")), key=lambda o: o["krw"])
         merged[name] = {"at": now.isoformat(), "offers": keep[:MAX_PER_SOURCE + 1],
@@ -254,7 +270,7 @@ def _with_retry(fn, attempts=3, delay=6):
             got = fn()
             if got:
                 return got, ""
-            last = "응답은 정상이나 0건"
+            last = EMPTY
         except Exception as exc:
             last = f"{type(exc).__name__}: {exc}"
         if i < attempts - 1:

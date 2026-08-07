@@ -67,13 +67,15 @@ function renderStay(stay, series) {
 }
 
 function renderHotel(h, stay, idx, series) {
-  const card = $('div', 'card' + (idx === 0 && h.best ? ' cheapest' : ''));
+  const card = $('div', 'card' + (idx === 0 && h.best ? ' cheapest' : '') +
+    (h.sold_out ? ' sold-out' : ''));
   const top = $('div', 'card-top');
 
   const left = $('div');
   const title = $('div');
   title.style.cssText = 'display:flex;gap:8px;align-items:center';
-  title.appendChild($('span', 'rank', String(idx + 1)));
+  title.appendChild($('span', 'rank' + (h.sold_out ? ' out' : ''),
+    h.sold_out ? '—' : String(idx + 1)));
   title.appendChild($('h3', 'hotel-name', h.name_ko));
   left.appendChild(title);
   left.appendChild($('p', 'hotel-sub', h.name_ja));
@@ -101,11 +103,33 @@ function renderHotel(h, stay, idx, series) {
       el.append(tag, ' 직전 대비');
       right.appendChild(el);
     }
+  } else if (h.sold_out) {
+    right.appendChild($('div', 'price-soldout', '매진'));
+    right.appendChild($('div', 'price-sub', `성인 ${PAX}명 객실 없음`));
   } else {
     right.appendChild($('div', 'price-sub', '조회 실패'));
   }
   top.appendChild(right);
   card.appendChild(top);
+
+  if (h.sold_out) {
+    const box = $('div', 'soldout-note');
+    box.appendChild($('strong', null, `이 날짜에 성인 ${PAX}명이 묵을 객실이 없습니다. `));
+    box.appendChild(document.createTextNode(
+      '조회한 판매처 전부에서 빈방이 나오지 않았습니다. 2인실은 아직 남아 있어 호텔은 영업 중이며, ' +
+      '취소분이 풀리면 다시 잡힙니다. 계속 확인하고 있으니 다시 나오면 여기에 표시됩니다.'));
+    if (h.prior_low_krw) {
+      box.appendChild($('div', 'soldout-last',
+        `마지막으로 확인된 가격: ${won(h.prior_low_krw)}원`));
+    }
+    card.appendChild(box);
+    card.appendChild(spark(series[`${stay.id}/${h.key}`]));
+    const links = $('div', 'links');
+    links.appendChild(link(h.naver_url, '네이버에서 직접 확인'));
+    links.appendChild(link(h.official, '공식 사이트'));
+    card.appendChild(links);
+    return card;
+  }
 
   if (h.best) {
     const b = $('div', 'badges');
@@ -155,8 +179,6 @@ function renderHotel(h, stay, idx, series) {
   return card;
 }
 
-/** 조회 경로 중 실패한 게 있으면 알린다.
- *  한 경로가 통째로 빠진 채 계산된 "최저가"를 그냥 믿게 두면 안 된다. */
 /** 실제로 쓸 수 없는 상태일 때만 알린다.
  *
  *  조회 경로 하나가 이번 회차에 실패하는 건 정상 범위다 — 직전 값을 이어받으니

@@ -422,3 +422,34 @@ footer a { color: var(--accent); }
 
 .xcheck-age { color: var(--muted); font-weight: 400; font-size: .92em; }
 .badge.stale { background: var(--gold-soft); color: var(--gold); }
+
+/* ── 매진 ───────────────────────────────── */
+.card.sold-out { opacity: .82; }
+.card.sold-out .hotel-name { color: var(--muted); }
+.rank.out { background: transparent; color: var(--muted); }
+
+.price-soldout {
+  font-size: 1.24rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--up);
+}
+
+.soldout-note {
+  margin-top: 12px;
+  background: var(--surface-2);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: .78rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.soldout-note strong { color: var(--up); }
+
+.soldout-last {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
