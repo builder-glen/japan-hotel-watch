@@ -176,7 +176,7 @@ launchctl bootout gui/$(id -u)/com.glen.japan-hotel-watch
 `launchd` 는 맥이 자는 동안 실행하지 않고, **깨어날 때 밀린 작업을 한 번** 돌린다.
 뚜껑을 닫아두면 그 시간대는 GitHub 쪽 3개 소스만 남는다.
 
-원격 URL 에 계정명을 박아둬서(`https://immortalemployee2021-gif@github.com/...`)
+원격 URL 에 계정명을 박아둬서(`https://builder-glen@github.com/...`)
 `gh` 활성 계정을 다른 걸로 바꿔도 이 레포 push 는 계속 동작한다.
 
 ### GitHub Actions
@@ -186,7 +186,7 @@ launchctl bootout gui/$(id -u)/com.glen.japan-hotel-watch
 Pages 는 **main 브랜치의 `/docs` 를 그대로 서빙**하도록 설정돼 있어서
 커밋이 곧 배포다. 별도 배포 잡이 없다.
 
-공개 주소: <https://immortalemployee2021-gif.github.io/japan-hotel-watch/>
+공개 주소: <https://builder-glen.github.io/japan-hotel-watch/>
 
 > GitHub 크론은 **정각에 정확히 돌지 않는다.** 혼잡하면 수 분~수십 분 밀린다.
 > "1시간마다"는 정확한 주기가 아니라 평균 주기로 보면 된다.
