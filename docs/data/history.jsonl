@@ -2001,3 +2001,8 @@
 {"t": "2026-08-15T01:30:03+09:00", "stay": "fukuoka", "hotel": "crosslife", "krw": 432302, "jpy": 48600, "src": "official", "seller": "공식 홈페이지"}
 {"t": "2026-08-15T01:30:03+09:00", "stay": "yufuin", "hotel": "musouen", "krw": 1142304, "jpy": 128419, "src": "agoda", "seller": "아고다 직접"}
 {"t": "2026-08-15T01:30:03+09:00", "stay": "yufuin", "hotel": "baien", "krw": 745275, "jpy": 83785, "src": "agoda", "seller": "아고다 직접"}
+{"t": "2026-08-15T01:48:28+09:00", "stay": "fukuoka", "hotel": "blossom", "krw": 806644, "jpy": 90684, "src": "official", "seller": "공식 홈페이지"}
+{"t": "2026-08-15T01:48:28+09:00", "stay": "fukuoka", "hotel": "mitsui", "krw": 422870, "jpy": 47540, "src": "naver", "seller": "트립비토즈"}
+{"t": "2026-08-15T01:48:28+09:00", "stay": "fukuoka", "hotel": "crosslife", "krw": 432302, "jpy": 48600, "src": "official", "seller": "공식 홈페이지"}
+{"t": "2026-08-15T01:48:28+09:00", "stay": "yufuin", "hotel": "musouen", "krw": 1154657, "jpy": 129808, "src": "agoda", "seller": "아고다 직접"}
+{"t": "2026-08-15T01:48:28+09:00", "stay": "yufuin", "hotel": "baien", "krw": 748438, "jpy": 84140, "src": "naver", "seller": "트립비토즈"}
